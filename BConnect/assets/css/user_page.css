@@ -103,7 +103,7 @@ img{
     color: var(--color-gray);
 }
 
-h3, h5, h4, input[type="search"]::placeholder, input[type="text"]::placeholder, .text-gray, p, .title, small, .add-post-2 {
+h3, h5, h6, h4, input[type="search"]::placeholder, input[type="text"]::placeholder, .text-gray, p, .title, small, .add-post-2 {
   color: var(--text-color);
 }
 
@@ -988,7 +988,7 @@ aside .menu-item:nth-last-child(1){
 #dark-btn.dark-btn-on {
   padding-left: 23px;
   background: #000;
-  border: 1px solid var(--color-success);
+  border: 1px solid var(--color-gray);
 }
 
 .choose-bg{

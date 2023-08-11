@@ -676,32 +676,23 @@
                     </div>
                     <!-- ...........Background Colors.......... -->
                     <div class="background">
-                        <small>Dark mode</small>
+                        <h4>Dark mode</h4>
                         <div id="dark-btn">
                           <span></span>
                         </div>
                     </div>
                 </div>
                 <span class="close"><i class="fa fa-close"></i></span>
-
             </div>
-
         </div>
         <!-- ................End   Theme Customize Popup............ -->
 
-
         <!-- ...................End PopUps Aria................... -->
-
-
-
-
-
-
 
     <!-- ...................Swiper JS Link.................. -->
     <script src="../../assets/Swiper/swiper-bundle.min.js"></script>
 
-    <!-- ...................Custom JS Link.................. -->
+    <!-- .................Custom JS Link.................. -->
     <script src="../../assets/js/user_page.js"></script>
 
 </body>
