@@ -164,7 +164,7 @@ let changeActiveItem = () => {
 }
 
 //Theme
-let theme = document.querySelector('#theme');
+let themes = document.querySelectorAll('.theme');
 let themeModal = document.querySelector('.theme-customize');
 
 // opens Modal
@@ -181,8 +181,11 @@ let closeThemeModal = (e) => {
   }
 }
 
-theme.addEventListener('click', openThemeModal);
-document.addEventListener('click', closeThemeModal);
+themes.forEach(theme => {
+  theme.addEventListener('click', openThemeModal);
+  document.addEventListener('click', closeThemeModal);
+})
+
 
 
 //................... Font Size..................
@@ -261,46 +264,34 @@ let darkColorLightTheme;
 let lightColorLightTheme;
 let whiteColorLightTheme;
 
-bg1.classList.add('active');
-
 const changBg = ()=>{
     root.style.setProperty('--color-dark-light-theme', darkColorLightTheme);
     root.style.setProperty('--color-light-light-theme',lightColorLightTheme);
     root.style.setProperty('--color-white-light-theme', whiteColorLightTheme);
 }
 
-bg2.addEventListener('click',()=>{
-    darkColorLightTheme = '95%';
-    lightColorLightTheme = '5%';
-    whiteColorLightTheme = '12%';
+let darkBtn = document.getElementById('dark-btn');
 
-    //Add active class
-    bg2.classList.add('active');
-    bg1.classList.remove('active');
+darkBtn.onclick = function() {
+  //si je click il ajoute la class dark-btn-on et si je re-click il supprime la class
+  darkBtn.classList.toggle('dark-btn-on');
+  document.body.classList.toggle('dark-theme');
 
-    bgicon();
-    changBg();
-});
+  if(localStorage.getItem('theme') === 'light') {
+    localStorage.setItem('theme', 'dark');
+  } else {
+    localStorage.setItem('theme', 'light');
+  }
+}
 
-bg1.addEventListener('click',()=>{
-    darkColorLightTheme = '35%';
-    lightColorLightTheme = '92%';
-    whiteColorLightTheme = '100%';
-    //Add active class
-    bg1.classList.add('active');
-    bg2.classList.remove('active');
-
-    bgicon();
-    changBg();
-    //window.location.reload();
-});
-
-// Dark Theme Aside Icon.....
-let menuItemImg = document.querySelectorAll('.menu-item span img');
-const bgicon = ()=>{
-    menuItemImg.forEach(icon=>{
-        icon.classList.add('icon-bg');
-    })
+if(localStorage.getItem('theme') == 'light') {
+  darkBtn.classList.remove('dark-btn-on');
+  document.body.classList.remove('dark-theme');
+} else if (localStorage.getItem('theme') == 'dark') {
+  darkBtn.classList.add('dark-btn-on');
+  document.body.classList.add('dark-theme');
+} else {
+  localStorage.setItem('theme', 'light');
 }
 
 // footer

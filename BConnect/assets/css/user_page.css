@@ -33,14 +33,24 @@
 
     --search-padding: .6rem 1rem;
     --card-padding: 1rem;
+
+    --body-color: #efefef;
+    --bg-color: #fff;
+    --text-color: #000;
 }
 
 body{
    font-family: 'Poppins', sans-serif;
     color: var(--color-dark);
-    background: var(--color-light);
-
+    background: var(--body-color);
+    transition: background 0.3s;
     font-size: 16px;
+}
+
+.dark-theme {
+  --body-color: #000;
+  --bg-color: #0a0a0a;
+  --text-color: #fff;
 }
 
 /* ..............Custom Style............. */
@@ -93,6 +103,10 @@ img{
     color: var(--color-gray);
 }
 
+h3, h5, h4, input[type="search"]::placeholder, input[type="text"]::placeholder, .text-gray, p, .title, small, .add-post-2 {
+  color: var(--text-color);
+}
+
 /* .................Start NavBar.................. */
 
 nav{
@@ -101,7 +115,7 @@ nav{
     top: 0;
     z-index: 10;
     padding: .7rem 0;
-    background: var(--color-white);
+    background: var(--bg-color);
 }
 .nav-container{
     display: flex;
@@ -110,8 +124,9 @@ nav{
 }
 nav .serch-bar{
     padding: var(--search-padding);
-    background: var(--color-light);
+    background: var(--bg-color);
     border-radius: var(--border-radius);
+    border: 1px solid var(--color-gray);
 }
 
 nav .serch-bar input[type="search"]{
@@ -122,7 +137,7 @@ nav .serch-bar input[type="search"]{
     color: var(--color-dark);
 }
 nav .serch-bar input[type="search"]::placeholder{
-    color: var(--color-gray);
+    color: var(--text-color);
 }
 .add-post{
     display: flex;
@@ -130,6 +145,7 @@ nav .serch-bar input[type="search"]::placeholder{
     gap: 2rem;
     cursor: pointer;
 }
+
 .logo h3{
     font-size: 1.6rem;
     font-weight: 600;
@@ -169,7 +185,7 @@ main{
 }
 
 .main-left .profile{
-    background: var(--color-white);
+    background: var(--bg-color);
     padding: var(--card-padding);
     border-radius: var(--card-border-radius);
     width: 100%;
@@ -184,8 +200,8 @@ aside{
 
 footer {
   position: sticky;
-  margin-bottom: 0rem;
-  margin-left: 7%;
+  margin-bottom: .1rem;
+  margin-left: 5%;
   border-radius:var(--card-border-radius) ;
   z-index: 100;
 }
@@ -197,11 +213,11 @@ footer {
   left: 0;
   width: 90%;
   background-color: #F4F6F8;
-  justify-content: space-around; /* Ajout pour aligner les éléments sur la même ligne */
+  justify-content: space-around;
   align-items: center;
   padding: 10px;
   box-shadow: 0px -2px 4px rgba(0, 0, 0, 0.1);
-  height: 60px; /* Ajustez la hauteur selon vos besoins */
+  height: 60px;
 }
 
 footer .menu-item {
@@ -229,6 +245,11 @@ footer .menu-item h6 {
     top: 1.3rem; /* Espacement entre l'icône et le titre */
     color: #1C1E21;
     cursor: pointer;
+}
+
+footer .active h6{
+    color: var(--color-primary);
+    text-decoration: underline;
 
 }
 
@@ -251,7 +272,7 @@ aside .menu-item {
     position: relative;
     cursor: pointer;
     transition: 300ms ease all;
-    background: var(--color-white);
+    background: var(--bg-color);
 }
 aside .menu-item:hover{
     background: var(--color-light);
@@ -260,6 +281,8 @@ aside .menu-item span img{
     width: 1.7rem;
     margin-left: 2rem;
     position: relative;
+    background: var(--color-white);
+    color: #000;
 }
 
 aside .notfy-counter{
@@ -278,9 +301,12 @@ aside .notfy-counter{
     left: 3rem !important;
 }
 
+
+
 aside .menu-item h3{
     margin-left: 1.5rem;
     font-size: 1rem;
+
 }
 aside .active{
     background: var(--color-light);
@@ -300,7 +326,7 @@ aside .menu-item:first-child{
     border-top-left-radius: var(--card-border-radius);
     border-top-right-radius: var(--card-border-radius);
 }
-aside .menu-item:nth-last-child(2){
+aside .menu-item:nth-last-child(1){
     overflow: hidden;
     border-bottom-left-radius: var(--card-border-radius);
     border-bottom-right-radius: var(--card-border-radius);
@@ -313,7 +339,7 @@ aside .menu-item:nth-last-child(2){
     left: 110%;
     position: absolute;
     top: 0;
-    background: var(--color-white);
+    background: var(--bg-color);
     border-radius: var(--card-border-radius);
     padding: var(--card-padding);
     box-shadow: var(--color-primary) 0 0 .4rem;
@@ -324,7 +350,7 @@ aside .menu-item:nth-last-child(2){
     content: '';
     width: 1.2rem;
     height: 1.2rem;
-    background: var(--color-white);
+    background: var(--bg-color);
     position: absolute;
     left: -.6rem;
     transform: rotate(45deg);
@@ -387,7 +413,7 @@ aside .menu-item:nth-last-child(2){
 
 }
 .stories-wrappper .story:first-child{
-    background: var(--color-primary);
+    background: linear-gradient(transparent,var(--color-primary));
     cursor: pointer;
 }
 .story .profile-picture{
@@ -433,7 +459,7 @@ aside .menu-item:nth-last-child(2){
     display: block;
     font-size: 1.4rem;
     margin-top: -1rem;
-    color: var(--color-white);
+    color: var(--bg-color);
     cursor: pointer;
 }
 .story .add-story p{
@@ -447,7 +473,7 @@ aside .menu-item:nth-last-child(2){
     align-items: center;
     padding: .4rem var(--card-padding);
     border-radius: var(--border-radius);
-    background: var(--color-white);
+    background: var(--bg-color);
     margin-top: 1rem;
 }
 .main-middle .add-post input[type="text"]{
@@ -464,7 +490,7 @@ aside .menu-item:nth-last-child(2){
 
 /* ............Start Feed Aria.......... */
 .feeds .feed{
-    background: var(--color-white);
+    background: var(--bg-color);
     padding: var(--card-padding);
     border-radius: var(--card-border-radius);
     margin: 1rem auto;
@@ -533,7 +559,7 @@ aside .menu-item:nth-last-child(2){
     color: var(--color-primary);
 }
 .edit .edit-menu{
-    background: var(--color-white);
+    background: var(--bg-color);
     padding: var(--card-padding);
     border-radius: var(--card-border-radius);
     display: flex;
@@ -589,7 +615,7 @@ aside .menu-item:nth-last-child(2){
 /*............ Start Message.......... */
 
 .messages{
-    background: var(--color-white);
+    background: var(--bg-color);
     border-radius: var(--card-border-radius);
     padding: var(--card-padding);
 }
@@ -604,11 +630,12 @@ aside .menu-item:nth-last-child(2){
 }
 .messge-serch-bar{
     display: flex;
-    background: var(--color-light);
+    background: var(--bg-color);
     border-radius: var(--border-radius);
     padding: var(--search-padding);
     gap: .5rem;
     margin-bottom: 1rem;
+    border: 1px solid var(--color-gray);
 }
 .messge-serch-bar input[type="search"]{
     background: transparent;
@@ -672,16 +699,16 @@ aside .menu-item:nth-last-child(2){
 /*............ End Message.......... */
 
 
-/*............ Start Firend Request.......... */
-.firend-rquest{
+/*............ Start friend Request.......... */
+.friend-rquest{
     margin-top: 1rem;
 }
-.firend-rquest h4{
+.friend-rquest h4{
     color: var(--color-gray);
     margin: 1rem 0;
 }
 .request{
-    background-color: var(--color-white);
+    background-color: var(--bg-color);
     padding: var(--card-padding);
     border-radius: var(--card-border-radius);
     margin-bottom: 1rem;
@@ -702,13 +729,13 @@ aside .menu-item:nth-last-child(2){
 }
 .request .action{
     display: flex;
-    gap: 1rem;
+    gap: .2rem;
 }
 .request .action .btn-danger{
     background: var(--color-danger);
     color: var(--color-white);
 }
-/*............ End Firend Request.......... */
+/*............ End friend Request.......... */
 /* ...............End Main Right............... */
 
 /* .................End Main Section.................. */
@@ -744,7 +771,7 @@ aside .menu-item:nth-last-child(2){
 .popup-box{
     width: fit-content;
     height: max-content;
-    background: var(--color-white);
+    background: var(--bg-color);
     padding: 3rem;
     border-radius: var(--card-border-radius);
     justify-content: center;
@@ -785,7 +812,7 @@ aside .menu-item:nth-last-child(2){
 }
 .popup .close{
     font-size: 1.6rem;
-    color: var(--color-gray);
+    color: var(--color-danger);
     margin-left: .5rem;
     margin-top: -.5rem;
     cursor: pointer;
@@ -802,6 +829,7 @@ aside .menu-item:nth-last-child(2){
     display: flex;
     flex-direction: column;
     gap: .5rem;
+    margin-top: 0rem;
 }
 .post-title label{
     font-size: 1.4rem;
@@ -820,19 +848,25 @@ aside .menu-item:nth-last-child(2){
     display: flex;
     flex-direction: column;
     gap: .5rem;
+
 }
 .post-img input[type='file']{
     display: none;
+    margin-top: 1rem;
 }
 .post-img img{
     width: 6rem;
     margin: auto;
-
+    border: 1px solid var(--color-primary);
+    margin-top: 1rem;
+    border-top-right-radius: 25%;
+    border-bottom-left-radius:  25%;
 }
 .post-img .feed-upload-button{
     padding: var(--card-padding);
     border: 2px dashed var(--color-dark);
     font-weight: bold;
+    margin-top: .4rem;
 }
 /*.............. End Add post popup.............. */
 
@@ -870,7 +904,7 @@ aside .menu-item:nth-last-child(2){
     border-radius: var(--card-border-radius);
     justify-content: space-between;
     align-items: center;
-    background: var(--color-light);
+    background: var(--bg-color);
     margin: 1rem 0;
 }
 .choose-size{
@@ -929,6 +963,34 @@ aside .menu-item:nth-last-child(2){
     background: hsl(202, 75%, 60%);
 }
 /* ........Background......... */
+
+
+#dark-btn {
+  position: absolute;
+  bottom: auto;
+  background: var(--color-gray);
+  width: 45px;
+  border-radius: 15px;
+  padding: 2px 3px;
+  cursor: pointer;
+  display: flex;
+  transition: padding-left 0.5s, background 0.5s;
+}
+
+#dark-btn span {
+  width: 18px;
+  height: 18px;
+  background: #fff;
+  border-radius: 50%;
+  display: inline-block;
+}
+
+#dark-btn.dark-btn-on {
+  padding-left: 23px;
+  background: #000;
+  border: 1px solid var(--color-success);
+}
+
 .choose-bg{
     display: flex;
     align-items: center;
@@ -980,11 +1042,6 @@ aside .menu-item:nth-last-child(2){
     color: var(--color-danger);
     transform: scale(1.2);
 }
-.icon-bg{
-    background: var(--color-dark);
-    padding: .2rem;
-    border-radius: .2rem;
-}
 
 /*******************
 MEDIA QUERIES FOR SMALL LAPTOPS AND BIG TABLETS
@@ -1029,6 +1086,18 @@ MEDIA QUERIES FOR SMALL LAPTOPS AND BIG TABLETS
 
 }
 
+@media screen and (max-width: 600px) {
+  .add-post-2 {
+    display: block;
+    position: absolute;
+    right: 3rem;
+  }
+
+  .add-post-1 {
+    display: none;
+  }
+}
+
 /*******************
 MEDIA QUERIES FOR SMALL TABLETS AND MOBILE PHONES
 ******************/
@@ -1062,15 +1131,6 @@ MEDIA QUERIES FOR SMALL TABLETS AND MOBILE PHONES
     display: block;
   }
 
-  .add-post-2 {
-    display: block;
-    position: absolute;
-    right: 4rem;
-  }
-
-  .add-post-1 {
-    display: none;
-  }
 
   main .container .main-middle {
     grid-column: 1/3;
@@ -1102,6 +1162,10 @@ MEDIA QUERIES FOR SMALL TABLETS AND MOBILE PHONES
 
   .footer {
     display: flex;
+  }
+
+  footer .menu-item h6 {
+    font-size: .5rem;
   }
 
 }

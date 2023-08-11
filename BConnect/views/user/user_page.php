@@ -30,7 +30,7 @@
                 </div>
                 <div class="add-post">
                     <label for="add-post" class="btn btn-primary mini-button add-post-1" >Add Post</label>
-                    <label for="add-post" class="btn mini-button add-post-2" ><img src="../../assets/images/icons/plus-icon.png" alt=""></label>
+                    <label for="add-post" class="btn mini-button add-post-2" > <i class="fa fa-add"></i> </label>
 
                     <div class="profile-picture" id="my-profile-picture">
                         <img src="../../assets/images/icons/default-user.png" alt="">
@@ -120,7 +120,7 @@
                             <span><img src="../../assets/images/icons/user.png" alt=""></span> <h3>Profil</h3>
                         </a>
 
-                        <a  class="menu-item" id="theme">
+                        <a  class="menu-item theme">
                             <span><img src="../../assets/images/icons/palette.svg" alt=""></span> <h3>Theme</h3>
                         </a>
 
@@ -390,41 +390,8 @@
 
                            <a  class="menu-item" id="Notify-box">
                                <span><img src="../../assets/images/icons/bell.svg" alt=""></span>
-                               <small class="notfy-counter" id="ntCounter1">7+</small>
+                               <small class="notfy-counter" id="ntCounter1">3</small>
                                 <h6>Notifications</h6>
-
-                               <!-- ...........Notification Box Start.......... -->
-                               <div class="notification-box">
-                                   <div>
-                                       <div class="profile-picture">
-                                           <img src="../../assets/images/img/golden.jpg" alt="">
-                                       </div>
-                                       <div class="notification-body">
-                                           <b>Golden</b> commented on your post
-                                           <small class="text-gry">2 HOUR AGO</small>
-                                       </div>
-                                   </div>
-                                   <div>
-                                       <div class="profile-picture">
-                                           <img src="../../assets/images/img/said.JPG" alt="">
-                                       </div>
-                                       <div class="notification-body">
-                                           <b>Said Balde</b> liked on your post
-                                           <small class="text-gry">JUST NOW</small>
-                                       </div>
-                                   </div>
-                                   <div>
-                                       <div class="profile-picture">
-                                           <img src="../../assets/images/img/messi.JPG" alt="">
-                                       </div>
-                                       <div class="notification-body">
-                                           <b>Leo Messi</b> and <b>5 other</b> commented on your post
-                                           <small class="text-gry">3 DAYS AGO</small>
-                                       </div>
-                                   </div>
-                               </div>
-                               <!-- ...........Notification Box End.......... -->
-
                            </a>
 
                            <a  class="menu-item" >
@@ -435,17 +402,17 @@
                                <span><img src="../../assets/images/icons/user.png" alt=""></span> <h6>Profil</h6>
                            </a>
 
-                           <a  class="menu-item" id="theme">
+                           <a  class="menu-item theme">
                                <span><img src="../../assets/images/icons/palette.svg" alt=""></span> <h6>Theme</h6>
                            </a>
 
-                           <a  class="menu-item" id="messageMenu">
+                           <a  class="menu-item" id="footer-messageMenu">
                                <span><img src="../../assets/images/icons/chat-left-dots.svg" alt=""></span>
-                               <small class="notfy-counter" id="notfyCoutner2">3</small>
+                               <small class="notfy-counter" id="footer-notfyCoutner2">5</small>
                                <h6>Messages</h6>
                            </a>
 
-                           <a  class="menu-item">
+                           <a  class="menu-item settings">
                                <span><img src="../../assets/images/icons/gear.svg" alt=""></span> <h6>Settings</h6>
                            </a>
 
@@ -544,7 +511,7 @@
 
 
                     <!-- ..............Start Firend Request............ -->
-                    <div class="firend-rquest">
+                    <div class="friend-rquest">
                         <h4>Request</h4>
                         <div class="request">
                             <div class="info">
@@ -709,16 +676,9 @@
                     </div>
                     <!-- ...........Background Colors.......... -->
                     <div class="background">
-                        <h4>Background</h4>
-                        <div class="choose-bg">
-                            <div class="bg1 active">
-                                <span></span>
-                                <h5 >Light</h5>
-                            </div>
-                            <div class="bg2">
-                                <span></span>
-                                <h5 >Dark</h5>
-                            </div>
+                        <small>Dark mode</small>
+                        <div id="dark-btn">
+                          <span></span>
                         </div>
                     </div>
                 </div>
