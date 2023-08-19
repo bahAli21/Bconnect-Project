@@ -1,18 +1,3 @@
-//.............. ...Start Swiper Story ................
-let swiper = new Swiper(".mySwiper",{
-    slidesPerView: 5,
-    spaceBetween : 4,
-})
-
-
-// ..................Window Scroll.................
-window.addEventListener('scroll',()=>{
-    // document.querySelector('.profile-popup').style.display='none'
-    // //document.querySelector('.add-post-popup').style.display='none'
-    // document.querySelector('.theme-customize').style.display='none'
-    // document.querySelector('.notification-box').style.display='none'
-})
-
 
 // .......................Start Aside...................
 let menuItem = document.querySelectorAll('.menu-item');
@@ -96,6 +81,7 @@ document.querySelectorAll('.close').forEach(AllCloser=>{
         document.querySelector('.profile-popup').style.display='none'
         document.querySelector('.add-post-popup').style.display='none'
         document.querySelector('.theme-customize').style.display='none'
+        document.querySelector('.story-full').style.display='none'
     })
 });
 
@@ -122,13 +108,6 @@ inputPost.addEventListener('click',()=>{
 
 document.querySelector('#feed-pic-upload').addEventListener('change',()=>{
     document.querySelector('#postIMg').src = URL.createObjectURL(document.querySelector('#feed-pic-upload').files[0]);
-});
-
-//.................Start Add story................
-
-document.querySelector('#add-story').addEventListener('change',()=>{
-    document.querySelector('#hidden .img').src = URL.createObjectURL(document.querySelector('#add-story').files[0]);
-    document.querySelector('#hidden').style.display='block';
 });
 
 // ................Mini Button input................
@@ -294,6 +273,9 @@ if(localStorage.getItem('theme') == 'light') {
   localStorage.setItem('theme', 'light');
 }
 
+//*******Story full ***********
+
+
 // footer
 
 /**
@@ -326,7 +308,7 @@ function setupScrollBehavior(footer) {
             footer.style.transform = 'translateY(0)';
         } else {
             // User is scrolling up, hide the footer.
-            footer.style.transform = 'translateY(100%)';
+            footer.style.transform = 'translateY(200%)';
         }
 
         prevScrollPos = currentScrollPos;

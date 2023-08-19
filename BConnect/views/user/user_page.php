@@ -7,7 +7,7 @@
     <title>BCONNECT</title>
     <!-- .................CUSTOM CSS LINK................. -->
     <link rel="stylesheet" href="../../assets/css/user_page.css">
-
+    <link rel="stylesheet" href="../../assets/css/story.css">
     <!-- ...............Font Awesome Link................. -->
     <link rel="stylesheet" href="../../assets/fontawesome-free-6.3.0-web/css/all.css">
 
@@ -15,9 +15,8 @@
     <link rel="stylesheet" href="../../assets/Swiper/swiper-bundle.min.css">
 
 </head>
+
 <body>
-
-
         <!-- ...................Start Navbar................... -->
         <nav>
             <div class="container nav-container">
@@ -39,8 +38,6 @@
             </div>
         </nav>
         <!-- ...................Start Navbar................... -->
-
-
 
         <!-- ...................Start Main Section................... -->
         <main>
@@ -76,7 +73,7 @@
                             <div class="notification-box">
                                 <div>
                                     <div class="profile-picture">
-                                        <img src="../../assets/images/img/golden.jpg" alt="">
+                                        <img src="../../assets/images/img/3.jpg" alt="">
                                     </div>
                                     <div class="notification-body">
                                         <b>Golden</b> commented on your post
@@ -94,7 +91,7 @@
                                 </div>
                                 <div>
                                     <div class="profile-picture">
-                                        <img src="../../assets/images/img/messi.JPG" alt="">
+                                        <img src="../../assets/images/img/13.jpg" alt="">
                                     </div>
                                     <div class="notification-body">
                                         <b>Leo Messi</b> and <b>5 other</b> commented on your post
@@ -130,125 +127,125 @@
 
                     </aside>
                     <!-- ..........End Aside Bar........... -->
-
-
-
                 </div>
                 <!--==================  Main Left End =================== -->
-
-
                 <!--================== Main Middle Start================== -->
                 <div class="main-middle">
                     <div class="middle-container">
-                           <!--...........Start Stories............. -->
-                    <div class="stories">
-                        <div class="stories-wrappper swiper mySwiper">
-                            <div class="swiper-wrapper">
-                                <div class="story swiper-slide">
-                                    <img src="" alt="">
-                                    <div class="profile-picture " id="my-profile-picture">
-                                        <img src="../../assets/images/icons/default-user.png" alt="">
-                                    </div>
-                                    <label for="add-story" class="add-story">
-                                         <i class="fa fa-add" id="upload"></i>
-                                        <p>Add Your <br> Story</p>
-                                    </label>
-                                    <input type="file" accept="image/jpg,image/png,image/jpeg" id="add-story">
-                                </div>
-
-                                <div class="story swiper-slide" id="hidden">
-                                    <img src="" alt="" class="img">
-                                    <div class="profile-picture" id="my-profile-picture">
-                                        <img src="../../assets/images/icons/default-user.png" alt="">
-                                    </div>
-                                    <p>Mohamed Fora</p>
-                                </div>
-
-                                <div class="story swiper-slide">
-                                    <img src="../../assets/images/img/said.JPG" alt="">
-                                    <div class="profile-picture " >
-                                        <img src="../../assets/images/img/said.JPG" alt="">
-                                    </div>
-                                    <p>Said Balde</p>
-                                </div>
-                                <div class="story swiper-slide">
-                                    <img src="../../assets/images/img/me.jpg" alt="">
-                                    <div class="profile-picture " >
-                                        <img src="../../assets/images/img/me.jpg" alt="">
-                                    </div>
-                                    <p>Ali BAH</p>
-                                </div>
-
-                                <div class="story swiper-slide">
-                                    <img src="../../assets/images/img/golden.jpg" alt="">
-                                    <div class="profile-picture " >
-                                        <img src="../../assets/images/img/golden.jpg" alt="">
-                                    </div>
-                                    <p>Golden</p>
-                                </div>
-                                <div class="story swiper-slide">
-                                    <img src="../../assets/images/img/ali-paris.jpg" alt="">
-                                    <div class="profile-picture " >
-                                        <img src="../../assets/images/img/ali-paris.jpg" alt="">
-                                    </div>
-                                    <p>BAH Leo</p>
-                                </div>
-                                <div class="story swiper-slide">
-                                    <img src="../../assets/images/img/s2.jpg" alt="">
-                                    <div class="profile-picture " >
-                                        <img src="../../assets/images/img/s2.jpg" alt="">
-                                    </div>
-                                    <p>Maria</p>
-                                </div>
-
-                                <div class="story swiper-slide">
-                                    <img src="../../assets/images/img/messi.JPG" alt="">
-                                    <div class="profile-picture " >
-                                        <img src="../../assets/images/img/messi.JPG" alt="">
-                                    </div>
-                                    <p>Leo Messi</p>
-                                </div>
-                                <div class="story swiper-slide">
-                                    <img src="../../assets/images/img/service-img-14.png" alt="">
-                                    <div class="profile-picture " >
-                                        <img src="../../assets/images/img/n4.png" alt="">
-                                    </div>
-                                    <p>BAH </p>
-                                </div>
-
-                                <div class="story swiper-slide">
-                                    <img src="../../assets/images/img/n3.png" alt="">
-                                    <div class="profile-picture " >
-                                        <img src="../../assets/images/img/st5.jpg" alt="">
-                                    </div>
-                                    <p>SOW</p>
-                                </div>
-                                <div class="story swiper-slide">
-                                    <img src="../../assets/images/img/st5.jpg" alt="">
-                                    <div class="profile-picture " >
-                                        <img src="../../assets/images/img/s7.jpg" alt="">
-                                    </div>
-                                    <p>Ibrahima Sow</p>
-                                </div>
-
-                                <div class="story swiper-slide">
-                                    <img src="../../assets/images/img/team2.png" alt="">
-                                    <div class="profile-picture " >
-                                        <img src="../../assets/images/img/n5.png" alt="">
-                                    </div>
-                                    <p>Booba</p>
-                                </div>
-                                <div class="story swiper-slide">
-                                    <img src="../../assets/images/img/m3.jpg" alt="">
-                                    <div class="profile-picture " >
-                                        <img src="../../assets/images/img/s3.jpg" alt="">
-                                    </div>
-                                    <p>END</p>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
                     <!--...........Start Stories............. -->
+
+                    <div class="stories-container">
+                     <div class="content">
+                       <div class="previous-btn">
+                         <svg
+                           xmlns="http://www.w3.org/2000/svg"
+                           fill="none"
+                           viewBox="0 0 24 24"
+                           stroke-width="1.5"
+                           stroke="currentColor"
+                           class="w-6 h-6"
+                         >
+                           <path
+                             stroke-linecap="round"
+                             stroke-linejoin="round"
+                             d="M15.75 19.5L8.25 12l7.5-7.5"
+                           />
+                         </svg>
+                       </div>
+
+                       <div class="stories">
+                         <div class="story">
+                            <label for="file-input" class="icon-add">
+                                <img src="../../assets/images/icons/plus-icon.png" alt="">
+                            </label>
+                            <input type="file" accept="image/jpg, image/png, image/jpeg" id="file-input">
+                            <div class="bloc-create-story">
+                                <p class="txt">Créer une story</p>
+                            </div>
+                         </div>
+
+                        <!-- added by JavaScript -->
+                       </div>
+
+                       <div class="next-btn active">
+                         <svg
+                           xmlns="http://www.w3.org/2000/svg"
+                           fill="none"
+                           viewBox="0 0 24 24"
+                           stroke-width="1.5"
+                           stroke="currentColor"
+                           class="w-6 h-6"
+                         >
+                           <path
+                             stroke-linecap="round"
+                             stroke-linejoin="round"
+                             d="M8.25 4.5l7.5 7.5-7.5 7.5"
+                           />
+                         </svg>
+                       </div>
+                     </div>
+                   </div>
+
+                   <div class="stories-full-view">
+                     <div class="close-btn">
+                       <svg
+                         xmlns="http://www.w3.org/2000/svg"
+                         fill="none"
+                         viewBox="0 0 24 24"
+                         stroke-width="1.5"
+                         stroke="currentColor"
+                         class="w-6 h-6"
+                       >
+                         <path
+                           stroke-linecap="round"
+                           stroke-linejoin="round"
+                           d="M6 18L18 6M6 6l12 12"
+                         />
+                       </svg>
+                     </div>
+
+                     <div class="content">
+                       <div class="previous-btn">
+                         <svg
+                           xmlns="http://www.w3.org/2000/svg"
+                           fill="none"
+                           viewBox="0 0 24 24"
+                           stroke-width="1.5"
+                           stroke="currentColor"
+                           class="w-6 h-6"
+                         >
+                           <path
+                             stroke-linecap="round"
+                             stroke-linejoin="round"
+                             d="M15.75 19.5L8.25 12l7.5-7.5"
+                           />
+                         </svg>
+                       </div>
+
+                       <div class="story">
+                         <img src="images/3.jpg" alt="" />
+                         <div class="author">Author</div>
+                       </div>
+
+                       <div class="next-btn">
+                         <svg
+                           xmlns="http://www.w3.org/2000/svg"
+                           fill="none"
+                           viewBox="0 0 24 24"
+                           stroke-width="1.5"
+                           stroke="currentColor"
+                           class="w-6 h-6"
+                         >
+                           <path
+                             stroke-linecap="round"
+                             stroke-linejoin="round"
+                             d="M8.25 4.5l7.5 7.5-7.5 7.5"
+                           />
+                         </svg>
+                       </div>
+                     </div>
+                   </div>
+
 
                     <!-- .........Post Input.......... -->
                     <form class="add-post input-post">
@@ -267,7 +264,7 @@
                             <div class="feed-top">
                                 <div class="user">
                                     <div class="profile-picture">
-                                        <img src="../../assets/images/img/messi.JPG" alt="">
+                                        <img src="../../assets/images/img/13.jpg" alt="">
                                     </div>
                                     <div class="info">
                                         <h3>Leo Messi</h3>
@@ -282,7 +279,7 @@
                             </div>
                             <!-- ...Feed Img.... -->
                             <div class="feed-img">
-                                <img src="../../assets/images/img/messi.JPG" alt="">
+                                <img src="../../assets/images/img/13.jpg" alt="">
                             </div>
                             <!-- ...Feed Action Aria... -->
                             <div class="action-button">
@@ -298,8 +295,8 @@
 
                             <!--.... Liked by.... -->
                             <div class="liked-by">
-                                <span><img src="../../assets/images/img/fora.jpg" alt=""></span>
-                                <span><img src="../../assets/images/img/n3.png" alt=""></span>
+                                <span><img src="../../assets/images/img/2.jpg" alt=""></span>
+                                <span><img src="../../assets/images/img/1.png" alt=""></span>
                                 <span><img src="../../assets/images/img/said.jpg" alt=""></span>
                                 <p>Liked by <b>Said Balde</b> and <b>77 comments other</b></p>
                             </div>
@@ -324,7 +321,7 @@
                             <div class="feed-top">
                                 <div class="user">
                                     <div class="profile-picture">
-                                        <img src="../../assets/images/img/ali-paris.jpg" alt="">
+                                        <img src="../../assets/images/img/4.jpg" alt="">
                                     </div>
                                     <div class="info">
                                         <h3>
@@ -341,7 +338,7 @@
                             </div>
                             <!-- ...Feed Img.... -->
                             <div class="feed-img">
-                                <img src="../../assets/images/img/Fedd0.jpg" alt="">
+                                <img src="../../assets/images/img/10.jpg" alt="">
                             </div>
                             <!-- ...Feed Action Aria... -->
                             <div class="action-button">
@@ -358,7 +355,7 @@
                             <!--.... Liked by.... -->
                             <div class="liked-by">
                                 <span><img src="../../assets/images/img/said.jpg" alt=""></span>
-                                <span><img src="../../assets/images/img/fora.jpg" alt=""></span>
+                                <span><img src="../../assets/images/img/2.jpg" alt=""></span>
                                 <p>Liked by <b>David mark</b> and <b>40 comments other</b></p>
                             </div>
 
@@ -446,7 +443,7 @@
                         <!-- ......Message..... -->
                         <div class="message">
                             <div class="profile-picture">
-                                <img src="../../assets/images/img/messi.JPG" alt="">
+                                <img src="../../assets/images/img/13.jpg" alt="">
                                 <div class="green-active"></div>
                             </div>
                             <div class="message-body">
@@ -458,7 +455,7 @@
                         </div>
                         <div class="message">
                             <div class="profile-picture">
-                                <img src="../../assets/images/img/golden.jpg" alt="">
+                                <img src="../../assets/images/img/3.jpg" alt="">
                                 <div class="green-active"></div>
                             </div>
                             <div class="message-body">
@@ -483,7 +480,7 @@
 
                         <div class="message">
                             <div class="profile-picture">
-                                <img src="../../assets/images/img/ali-paris.jpg" alt="">
+                                <img src="../../assets/images/img/4.jpg" alt="">
 
                             </div>
                             <div class="message-body">
@@ -495,7 +492,7 @@
                         </div>
                         <div class="message">
                             <div class="profile-picture">
-                                <img src="../../assets/images/img/me.jpg" alt="">
+                                <img src="../../assets/images/img/8.jpg" alt="">
                                 <div class="green-noActive"></div>
                             </div>
                             <div class="message-body">
@@ -516,10 +513,10 @@
                         <div class="request">
                             <div class="info">
                                 <div class="profile-picture">
-                                    <img src="../../assets/images/img/f4.jpg" alt="">
+                                    <img src="../../assets/images/img/12.jpg" alt="">
                                 </div>
                                 <div>
-                                    <h5>meuf</h5>
+                                    <h5>Steve Jobs</h5>
                                     <p class="text-gry">
                                         4 mutual firend
                                     </p>
@@ -539,7 +536,7 @@
                         <div class="request">
                             <div class="info">
                                 <div class="profile-picture">
-                                    <img src="../../assets/images/img/bconnectGmail-Profile.jpg" alt="">
+                                    <img src="../../assets/images/img/1.jpg" alt="">
                                 </div>
                                 <div>
                                     <h5>BAH Leo</h5>
@@ -561,7 +558,7 @@
                         <div class="request">
                             <div class="info">
                                 <div class="profile-picture">
-                                    <img src="../../assets/images/img/me.jpg" alt="">
+                                    <img src="../../assets/images/img/7.jpg" alt="">
                                 </div>
                                 <div>
                                     <h5>Ali BAH</h5>
@@ -643,26 +640,7 @@
         <div class="popup theme-customize">
             <div>
                 <div class="popup-box theme-customize-popup-box">
-                    <p>Manege Your Font Size, Color, and Background</p>
-
-                    <!-- ........Font Size....... -->
-                    <div class="font-size">
-                        <h4>Font Size</h4>
-                        <div>
-                            <div>
-                                <h6>Aa</h6>
-                             </div>
-                             <div class="choose-size">
-                                 <span class="font-size-1"></span>
-                                 <span class="font-size-2 " ></span>
-                                 <span class="font-size-3 active"></span>
-
-                             </div>
-                             <div>
-                                 <h3>Aa</h3>
-                             </div>
-                        </div>
-                    </div>
+                    <p>Manege Your Color and Background</p>
                     <!-- ..........Primary Colors........ -->
                     <div class="colors">
                         <h4>Color</h4>
@@ -694,6 +672,8 @@
 
     <!-- .................Custom JS Link.................. -->
     <script src="../../assets/js/user_page.js"></script>
+    <script src="../../assets/js/story.js"></script>
+
 
 </body>
 

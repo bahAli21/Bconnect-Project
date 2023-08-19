@@ -103,9 +103,11 @@ img{
     color: var(--color-gray);
 }
 
-h3, h5, h6, h4, input[type="search"]::placeholder, input[type="text"]::placeholder, .text-gray, p, .title, small, .add-post-2 {
+h3, h4, h5, h6, p, .title, small, .text-gray, .add-post-2,
+input[type="search"]::placeholder, input[type="text"]::placeholder {
   color: var(--text-color);
 }
+
 
 /* .................Start NavBar.................. */
 
@@ -200,10 +202,10 @@ aside{
 
 footer {
   position: sticky;
-  margin-bottom: .1rem;
+  margin-bottom: 1rem;
   margin-left: 5%;
   border-radius:var(--card-border-radius) ;
-  z-index: 100;
+  z-index: 10;
 }
 
 .footer {
@@ -281,7 +283,7 @@ aside .menu-item span img{
     width: 1.7rem;
     margin-left: 2rem;
     position: relative;
-    background: var(--color-white);
+    background: var(--color-light);
     color: #000;
 }
 
@@ -375,97 +377,11 @@ aside .menu-item:nth-last-child(1){
 
 
 /* ................Start Main Medle............... */
-
-/* ...........Stories start............ */
 .middle-container{
     width: 50vw;
     height: 50vh;
     margin: 0 auto;
 }
-.stories-wrappper{
-    display: block;
-    gap: .5rem;
-    height: 12rem !important;
-}
-.stories-wrappper .story{
-    width: 100%;
-    height: 100%;
-    position: relative;
-    border-radius: var(--card-border-radius);
-    overflow: hidden;
-    cursor: pointer;
-}
-
-#hidden {
-  display: none;
-}
-.story input{
-    display: none;
-}
-.story::before{
-    height: 5rem;
-    content: '';
-    display: block;
-    position: absolute;
-    bottom: 0;
-    background: linear-gradient(transparent,var(--color-primary));
-    width: 100%;
-
-}
-.stories-wrappper .story:first-child{
-    background: linear-gradient(transparent,var(--color-primary));
-    cursor: pointer;
-}
-.story .profile-picture{
-    position: absolute;
-    top: .6rem;
-    left: 0.2rem;
-    width: 2.4rem;
-    border: 2px dashed var(--color-primary);
-    z-index: 8;
-}
-.story p{
-    text-align: center;
-    margin-top: -3rem;
-    color: white;
-    z-index: 8;
-    position: absolute;
-    width: 100%;
-    font-size: .9rem;
-    letter-spacing: .4px;
-    cursor: pointer;
-}
-.story>img{
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
-    cursor: pointer;
-}
-.story .add-story{
-    display: flex;
-    flex-direction: column;
-    width: 100%;
-    height: 100%;
-    background: var(--color-primary);
-    top: 0;
-    position: absolute;
-    align-items: center;
-    justify-content: center;
-    text-align: center;
-    cursor: pointer;
-}
-
-.story .add-story i{
-    display: block;
-    font-size: 1.4rem;
-    margin-top: -1rem;
-    color: var(--bg-color);
-    cursor: pointer;
-}
-.story .add-story p{
-    margin-bottom: -7rem;
-}
-/* ...........Stories end............ */
 
 .main-middle .add-post{
     display: flex;
@@ -741,15 +657,6 @@ aside .menu-item:nth-last-child(1){
 /* .................End Main Section.................. */
 
 
-
-
-
-
-
-
-
-
-
 /* .................Start Popup Aria ................. */
 
 /* .............Start Profile Popup............. */
@@ -880,7 +787,7 @@ aside .menu-item:nth-last-child(1){
   position: fixed;
   top: 0;
   left: 0;
-  z-index: 100;
+  z-index: 21;
   text-align: center;
   display: grid;
   place-items: center;
@@ -889,12 +796,10 @@ aside .menu-item:nth-last-child(1){
 }
 
 .theme-customize-popup-box {
-  width: 80vw;
-  height: 80vh;
+  width: 70vw;
+  height: 50vh;
 }
-.theme-customize-popup-box .font-size{
-    margin-top: 3rem;
-}
+
 .theme-customize-popup-box h1{
     margin-bottom: -5rem;
 }
@@ -907,26 +812,6 @@ aside .menu-item:nth-last-child(1){
     background: var(--bg-color);
     margin: 1rem 0;
 }
-.choose-size{
-    height: .3rem;
-    width: 100%;
-    display: flex;
-    justify-content: space-between;
-    background: var(--color-secondary);
-    align-items: center;
-    margin: 0 1rem;
-    gap: 4rem;
-}
-.choose-size span{
-    width: 1rem;
-    height: 1rem;
-    background: var(--color-secondary);
-    cursor: pointer;
-    border-radius: 50%;
-}
-.choose-size .active{
-    background: var(--color-primary);
-}
 /* ........Color......... */
 .choose-color{
     margin: 1rem 0;
@@ -938,8 +823,8 @@ aside .menu-item:nth-last-child(1){
     align-items: center;
 }
 .choose-color span{
-    height: 2.2rem;
-    width: 2.2rem;
+    height: 1.2rem;
+    width: 1.2rem;
     border-radius: 50%;
     display: inline-block;
     margin: 0 .5rem;
