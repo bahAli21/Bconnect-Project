@@ -1,3 +1,15 @@
+// --------------------Search input color ---------------------
+const searchInputs = document.querySelectorAll('.search-input');
+
+searchInputs.forEach(input => {
+  input.addEventListener('input', function() {
+    this.style.color = `var(--text-color)`;
+  });
+
+  // Pour appliquer la couleur initiale au chargement de la page
+  input.style.color = `var(--text-color)`;
+});
+
 
 // .......................Start Aside...................
 let menuItem = document.querySelectorAll('.menu-item');
@@ -234,20 +246,6 @@ colorpallete.forEach(color => {
 
 
 //...................Background Change..................
-
-let bg1 = document.querySelector('.bg1');
-let bg2 = document.querySelector('.bg2');
-
-// Theme Background value.....
-let darkColorLightTheme;
-let lightColorLightTheme;
-let whiteColorLightTheme;
-
-const changBg = ()=>{
-    root.style.setProperty('--color-dark-light-theme', darkColorLightTheme);
-    root.style.setProperty('--color-light-light-theme',lightColorLightTheme);
-    root.style.setProperty('--color-white-light-theme', whiteColorLightTheme);
-}
 
 let darkBtn = document.getElementById('dark-btn');
 

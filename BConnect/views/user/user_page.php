@@ -11,9 +11,6 @@
     <!-- ...............Font Awesome Link................. -->
     <link rel="stylesheet" href="../../assets/fontawesome-free-6.3.0-web/css/all.css">
 
-    <!-- ...............Swiper Slider Link.................. -->
-    <link rel="stylesheet" href="../../assets/Swiper/swiper-bundle.min.css">
-
 </head>
 
 <body>
@@ -25,7 +22,7 @@
                 </div>
                 <div class="serch-bar">
                     <i class="fa fa-search"></i>
-                    <input type="search" placeholder="Serch For Creators">
+                    <input type="search"  class="search-input" placeholder="Serch For Creators">
                 </div>
                 <div class="add-post">
                     <label for="add-post" class="btn btn-primary mini-button add-post-1" >Add Post</label>
@@ -432,7 +429,7 @@
                         <!-- ....Searchbar... -->
                         <div class="messge-serch-bar">
                             <i class="fa fa-search"></i>
-                            <input type="search" placeholder="Search message" id="message-search">
+                            <input type="search"  class="search-input" placeholder="Search message" id="message-search">
                         </div>
                         <!-- ......Message Categories..... -->
                         <div class="message-categories">
@@ -666,9 +663,6 @@
         <!-- ................End   Theme Customize Popup............ -->
 
         <!-- ...................End PopUps Aria................... -->
-
-    <!-- ...................Swiper JS Link.................. -->
-    <script src="../../assets/Swiper/swiper-bundle.min.js"></script>
 
     <!-- .................Custom JS Link.................. -->
     <script src="../../assets/js/user_page.js"></script>

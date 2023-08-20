@@ -1,81 +1,87 @@
 const allStories = [
-  {
-    id: 0,
-    author: "The Assasin",
-    imageUrl: "../../assets/images/img/1.jpg",
-  },
+  [
+    {
+      id: 0,
+      author: "The Assasin",
+      imageUrl: "../../assets/images/img/1.jpg",
+    },
 
-  {
-    id: 1,
-    author: "Fora",
-    imageUrl: "../../assets/images/img/2.jpg",
-  },
+    {
+      id: 1,
+      author: "The Assasin",
+      imageUrl: "../../assets/images/img/2.jpg",
+    },
 
-  {
-    id: 2,
-    author: "Golden",
-    imageUrl: "../../assets/images/img/3.jpg",
-  },
+    {
+      id: 2,
+      author: "The Assasin",
+      imageUrl: "../../assets/images/img/3.jpg",
+    },
+  ],
+  [
+    {
+      id: 3,
+      author: "BAH Leo",
+      imageUrl: "../../assets/images/img/4.jpg",
+    },
 
-  {
-    id: 3,
-    author: "BAH Leo",
-    imageUrl: "../../assets/images/img/4.jpg",
-  },
+    {
+      id: 4,
+      author: "BAH Leo",
+      imageUrl: "../../assets/images/img/5.jpg",
+    },
 
-  {
-    id: 4,
-    author: "Ali Bah",
-    imageUrl: "../../assets/images/img/5.jpg",
-  },
+    {
+      id: 5,
+      author: "BAH Leo",
+      imageUrl: "../../assets/images/img/6.jpg",
+    },
+  ],
+  [
+    {
+      id: 6,
+      author: "Fora",
+      imageUrl: "../../assets/images/img/7.jpg",
+    },
 
-  {
-    id: 5,
-    author: "nope",
-    imageUrl: "../../assets/images/img/6.jpg",
-  },
+    {
+      id: 7,
+      author: "Fora",
+      imageUrl: "../../assets/images/img/8.jpg",
+    },
 
-  {
-    id: 6,
-    author: "nope",
-    imageUrl: "../../assets/images/img/7.jpg",
-  },
+    {
+      id: 8,
+      author: "Fora",
+      imageUrl: "../../assets/images/img/9.jpg",
+    },
+  ],
+  [
+    {
+      id: 9,
+      author: "Golden",
+      imageUrl: "../../assets/images/img/10.jpg",
+    },
 
-  {
-    id: 7,
-    author: "nope",
-    imageUrl: "../../assets/images/img/8.jpg",
-  },
+    {
+      id: 9,
+      author: "Golden",
+      imageUrl: "../../assets/images/img/11.jpg",
+    },
 
-  {
-    id: 8,
-    author: "nope",
-    imageUrl: "../../assets/images/img/9.jpg",
-  },
+    {
+      id: 9,
+      author: "Golden",
+      imageUrl: "../../assets/images/img/12.jpg",
+    },
 
-  {
-    id: 9,
-    author: "nope",
-    imageUrl: "../../assets/images/img/10.jpg",
-  },
+    {
+      id: 9,
+      author: "Golden",
+      imageUrl: "../../assets/images/img/13.jpg",
+    },
+  ],
 
-  {
-    id: 9,
-    author: "nope",
-    imageUrl: "../../assets/images/img/11.jpg",
-  },
-
-  {
-    id: 9,
-    author: "Steve Jobs",
-    imageUrl: "../../assets/images/img/12.jpg",
-  },
-
-  {
-    id: 9,
-    author: "Leo Messi",
-    imageUrl: "../../assets/images/img/13.jpg",
-  },
 ];
 
 const stories = document.querySelector(".stories");
@@ -94,16 +100,17 @@ const previousBtnFull = document.querySelector(
 );
 
 let currentActive = 0;
+let currentActiveSubStory = 0;
 
 const createStories = () => {
-  allStories.forEach((s, i) => {
+  allStories.forEach((subStory, i) => {
     const story = document.createElement("div");
     story.classList.add("story");
     const img = document.createElement("img");
-    img.src = s.imageUrl;
+    img.src = subStory[0].imageUrl;
     const author = document.createElement("div");
     author.classList.add("author");
-    author.innerHTML = s.author;
+    author.innerHTML = subStory[0].author;
 
     story.appendChild(img);
     story.appendChild(author);
@@ -126,11 +133,20 @@ const showFullView = (index) => {
 
 closeBtn.addEventListener("click", () => {
   storiesFullView.classList.remove("active");
+  currentActiveSubStory = 0;
+  currentActive = 0;
 });
 
 const updateFullView = () => {
-  storyImageFull.src = allStories[currentActive].imageUrl;
-  storyAuthorFull.innerHTML = allStories[currentActive].author;
+  if (
+    currentActive >= 0 &&
+    currentActive < allStories.length &&
+    currentActiveSubStory >= 0 &&
+    currentActiveSubStory < allStories[currentActive].length
+  ) {
+    storyImageFull.src = allStories[currentActive][currentActiveSubStory].imageUrl;
+    storyAuthorFull.innerHTML = allStories[currentActive][currentActiveSubStory].author;
+  }
 };
 
 nextBtn.addEventListener("click", () => {
@@ -158,18 +174,54 @@ storiesContent.addEventListener("scroll", () => {
   }
 });
 
-nextBtnFull.addEventListener("click", () => {
-  if (currentActive >= allStories.length - 1) {
-    return;
+// Gestionnaire d'événement pour la détection du défilement
+window.addEventListener("scroll", () => {
+  if (window.scrollX > 0) {
+    // Faire l'action du bouton "Précédent"
+    if (currentActive > 0 || currentActiveSubStory > 0) {
+      if (currentActiveSubStory > 0) {
+        currentActiveSubStory--;
+      } else {
+        currentActive--;
+        currentActiveSubStory = allStories[currentActive].length - 1;
+      }
+    }
+    updateFullView();
+  } else if (window.scrollX < 0) {
+    // Faire l'action du bouton "Suivant"
+    if (currentActive < allStories.length - 1 || currentActiveSubStory < allStories[currentActive].length - 1) {
+      if (currentActiveSubStory >= allStories[currentActive].length - 1) {
+        currentActive++;
+        currentActiveSubStory = 0;
+      } else {
+        currentActiveSubStory++;
+      }
+      updateFullView();
+    }
   }
-  currentActive++;
+});
+
+
+nextBtnFull.addEventListener("click", () => {
+  if (currentActive < allStories.length - 1 || currentActiveSubStory < allStories[currentActive].length - 1) {
+    if (currentActiveSubStory >= allStories[currentActive].length - 1) {
+      currentActive++;
+      currentActiveSubStory = 0;
+    } else {
+      currentActiveSubStory++;
+    }
+  }
   updateFullView();
 });
 
 previousBtnFull.addEventListener("click", () => {
-  if (currentActive <= 0) {
-    return;
+  if (currentActive > 0 || currentActiveSubStory > 0) {
+    if (currentActiveSubStory > 0) {
+      currentActiveSubStory--;
+    } else {
+      currentActive--;
+      currentActiveSubStory = allStories[currentActive].length - 1;
+    }
   }
-  currentActive--;
   updateFullView();
 });
