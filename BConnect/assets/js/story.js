@@ -22,7 +22,7 @@ const allStories = [
     {
       id: 3,
       author: "BAH Leo",
-      imageUrl: "../../assets/images/img/4.jpg",
+      imageUrl: "../../assets/images/img/9.jpg",
     },
 
     {
@@ -40,7 +40,7 @@ const allStories = [
   [
     {
       id: 6,
-      author: "Fora",
+      author: "M. Fora",
       imageUrl: "../../assets/images/img/7.jpg",
     },
 
@@ -108,12 +108,23 @@ const createStories = () => {
     story.classList.add("story");
     const img = document.createElement("img");
     img.src = subStory[0].imageUrl;
+    const blocProfile =  document.createElement("div");
+    blocProfile.classList.add("bloc-profile-author");
+    const profilePicture =  document.createElement("div");
+    profilePicture.classList.add("profile-picture");
+    const picture =  document.createElement("img");
+    picture.src = subStory[2].imageUrl;
     const author = document.createElement("div");
     author.classList.add("author");
     author.innerHTML = subStory[0].author;
 
+    profilePicture.appendChild(picture);
+    blocProfile.appendChild(profilePicture);
+    blocProfile.appendChild(author);
+
+
     story.appendChild(img);
-    story.appendChild(author);
+    story.appendChild(blocProfile);
 
     stories.appendChild(story);
 

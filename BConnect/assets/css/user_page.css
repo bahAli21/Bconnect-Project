@@ -888,7 +888,6 @@ aside .menu-item:nth-last-child(1){
 .liked{
     font-weight: bold !important;
     color: var(--color-danger);
-    transform: scale(1.2);
 }
 
 /*******************

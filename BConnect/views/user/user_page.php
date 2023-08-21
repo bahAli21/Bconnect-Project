@@ -184,22 +184,6 @@
                    </div>
 
                    <div class="stories-full-view">
-                     <div class="close-btn">
-                       <svg
-                         xmlns="http://www.w3.org/2000/svg"
-                         fill="none"
-                         viewBox="0 0 24 24"
-                         stroke-width="1.5"
-                         stroke="currentColor"
-                         class="w-6 h-6"
-                       >
-                         <path
-                           stroke-linecap="round"
-                           stroke-linejoin="round"
-                           d="M6 18L18 6M6 6l12 12"
-                         />
-                       </svg>
-                     </div>
 
                      <div class="content">
                        <div class="previous-btn">
@@ -220,8 +204,32 @@
                        </div>
 
                        <div class="story">
-                         <img src="images/3.jpg" alt="" />
-                         <div class="author">Author</div>
+                         <img src="images/3.jpg" class="img-post" alt="" />
+                         <div class="story-full-head">
+                           <div class="profile-picture" id="my-profile-picture">
+                               <img src="../../assets/images/icons/default-user.png" alt="">
+                           </div>
+                          <p class="txt author"></p>
+                          <div class="three-dots">
+                            <img src="../../assets/images/icons/three-dots.svg" alt="">
+                          </div>
+                          <div class="close-btn">
+                            <svg
+                              xmlns="http://www.w3.org/2000/svg"
+                              fill="none"
+                              viewBox="0 0 24 24"
+                              stroke-width="1.5"
+                              stroke="currentColor"
+                              class="w-6 h-6"
+                            >
+                              <path
+                                stroke-linecap="round"
+                                stroke-linejoin="round"
+                                d="M6 18L18 6M6 6l12 12"
+                              />
+                            </svg>
+                          </div>
+                         </div>
                        </div>
 
                        <div class="next-btn">
@@ -239,6 +247,16 @@
                              d="M8.25 4.5l7.5 7.5-7.5 7.5"
                            />
                          </svg>
+                       </div>
+                       <div class="story-footer">
+                         <div class="input-message">
+                           <input type="text" name="" placeholder="Envoyer un message">
+                         </div>
+                         <div class="btn-action-story">
+                           <span><i class="fa fa-heart"></i></span>
+                           <span ><i class="fa-regular fa-paper-plane"></i></span>
+                         </div>
+
                        </div>
                      </div>
                    </div>

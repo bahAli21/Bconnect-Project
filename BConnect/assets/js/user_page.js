@@ -137,7 +137,7 @@ document.querySelector('.mini-button').addEventListener('dblclick',()=>{
 // ..............Liked button.............
 
 
-document.querySelectorAll('.action-button span:first-child i').forEach(liked=>{
+document.querySelectorAll('.fa-heart').forEach(liked=>{
     liked.addEventListener('click',()=>{
         liked.classList.toggle('liked');
     })
