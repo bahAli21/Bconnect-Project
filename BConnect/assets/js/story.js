@@ -2,19 +2,19 @@ const allStories = [
   [
     {
       id: 0,
-      author: "The Assasin",
+      author: "The Assassin",
       imageUrl: "../../assets/images/img/1.jpg",
     },
 
     {
       id: 1,
-      author: "The Assasin",
+      author: "The Assassin",
       imageUrl: "../../assets/images/img/2.jpg",
     },
 
     {
       id: 2,
-      author: "The Assasin",
+      author: "The Assassin",
       imageUrl: "../../assets/images/img/3.jpg",
     },
   ],
@@ -64,19 +64,19 @@ const allStories = [
     },
 
     {
-      id: 9,
+      id: 10,
       author: "Golden",
       imageUrl: "../../assets/images/img/11.jpg",
     },
 
     {
-      id: 9,
+      id: 11,
       author: "Golden",
       imageUrl: "../../assets/images/img/12.jpg",
     },
 
     {
-      id: 9,
+      id: 12,
       author: "Golden",
       imageUrl: "../../assets/images/img/13.jpg",
     },
@@ -99,8 +99,91 @@ const previousBtnFull = document.querySelector(
   ".stories-full-view .previous-btn"
 );
 
+const updateFullView = () => {
+  if (
+    currentActive >= 0 &&
+    currentActive < allStories.length &&
+    currentActiveSubStory >= 0 &&
+    currentActiveSubStory < allStories[currentActive].length
+  ) {
+    storyImageFull.src = allStories[currentActive][currentActiveSubStory].imageUrl;
+    storyAuthorFull.innerHTML = allStories[currentActive][currentActiveSubStory].author;
+    displayFooter(currentActiveSubStory);
+  }
+};
+
+const displayFooter = (i) => {
+  document.querySelectorAll('.story-footer').forEach((footer, ind) => {
+      if (i === ind) {
+          footer.style.display = 'flex'; // Affiche le pied de page du sous-story actif
+      } else {
+          footer.style.display = 'none'; // Masque les pieds de page des autres sous-histoires
+      }
+  });
+}
+
+const showFullView = (index) => {
+  currentActive = index;
+  displayFooter(index);
+  updateFullView();
+  storiesFullView.classList.add("active");
+};
+
 let currentActive = 0;
 let currentActiveSubStory = 0;
+
+const createStoryFooter = () => {
+
+  // -----------  Footer-story-showFullView -------------
+  allStories.forEach((subStory, i) => {
+    subStory.forEach((story, i) => {
+      const storyFullViewContent = document.querySelector('.stories-full-view .content');
+
+      const footerStory = document.createElement('div');
+      footerStory.classList.add('story-footer')
+
+      const messageInput = document.createElement('div');
+      messageInput.classList.add('input-message');
+
+      const inputElement = document.createElement("input");
+      inputElement.type = "text";
+      inputElement.placeholder = "Envoyer un message";
+
+      messageInput.appendChild(inputElement);
+
+      const btnActionStory = document.createElement('div');
+      btnActionStory.classList.add('btn-action-story');
+
+      // heart
+      const spanHeart = document.createElement('span');
+      spanHeart.innerHTML = '<i class="fa fa-heart"></i>';
+      spanHeart.classList.add('bouton-j-aime');
+      spanHeart.dataset.storyId = story.id; // Attribuez l'ID de l'histoire en tant qu'attribut de données
+      const spanSend =document.createElement('span');
+      spanSend.innerHTML = '<i class="fa-regular fa-paper-plane"></i>';
+
+      btnActionStory.appendChild(spanHeart);
+      btnActionStory.appendChild(spanSend);
+      //Fin heart
+
+      btnActionStory.appendChild(spanHeart);
+      btnActionStory.appendChild(spanSend);
+
+      footerStory.appendChild(messageInput);
+      footerStory.appendChild(btnActionStory);
+
+      storyFullViewContent.appendChild(footerStory);
+    });
+
+  });
+
+  document.querySelectorAll('.bouton-j-aime').forEach(spanHeart => {
+    spanHeart.addEventListener('click', () => {
+    spanHeart.classList.toggle('liked');
+    })
+});
+
+}
 
 const createStories = () => {
   allStories.forEach((subStory, i) => {
@@ -130,35 +213,20 @@ const createStories = () => {
 
     story.addEventListener("click", () => {
       showFullView(i);
+
     });
   });
 };
 
 createStories();
+createStoryFooter();
 
-const showFullView = (index) => {
-  currentActive = index;
-  updateFullView();
-  storiesFullView.classList.add("active");
-};
 
 closeBtn.addEventListener("click", () => {
   storiesFullView.classList.remove("active");
   currentActiveSubStory = 0;
   currentActive = 0;
 });
-
-const updateFullView = () => {
-  if (
-    currentActive >= 0 &&
-    currentActive < allStories.length &&
-    currentActiveSubStory >= 0 &&
-    currentActiveSubStory < allStories[currentActive].length
-  ) {
-    storyImageFull.src = allStories[currentActive][currentActiveSubStory].imageUrl;
-    storyAuthorFull.innerHTML = allStories[currentActive][currentActiveSubStory].author;
-  }
-};
 
 nextBtn.addEventListener("click", () => {
   storiesContent.scrollLeft += 300;

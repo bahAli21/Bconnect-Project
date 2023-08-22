@@ -248,16 +248,7 @@
                            />
                          </svg>
                        </div>
-                       <div class="story-footer">
-                         <div class="input-message">
-                           <input type="text" name="" placeholder="Envoyer un message">
-                         </div>
-                         <div class="btn-action-story">
-                           <span><i class="fa fa-heart"></i></span>
-                           <span ><i class="fa-regular fa-paper-plane"></i></span>
-                         </div>
 
-                       </div>
                      </div>
                    </div>
 
