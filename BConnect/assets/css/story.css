@@ -1,3 +1,6 @@
+:root {
+  --time-indicators: 15s;
+}
 
 .stories-container {
   max-width: 600px;
@@ -43,6 +46,38 @@
 .stories-container .next-btn,
 .stories-full-view .next-btn {
   right: 8px;
+}
+
+.story .indicators {
+  position: absolute;
+  top: 60px;
+  display: flex;
+  justify-content: center;
+  width: 100%;
+  box-sizing: border-box;
+  padding: 0 10px;
+}
+
+.story .indicators span {
+  width: 100%;
+  height: 2px;
+  margin: 0 5px;
+  border-radius: 5px;
+  background: var(--color-white);
+  cursor: pointer;
+  overflow: hidden; /* Cache le dépassement de la couleur */
+}
+
+.story .indicators span.active {
+  background: linear-gradient(to right, var(--color-white) 0%, var(--color-success) 100%);
+  background-size: 0% 100%;
+  animation: fillAnimation var(--time-indicators) forwards; /* Utilisation de l'animation fillAnimation */
+}
+
+@keyframes fillAnimation {
+  to {
+    background-size: 100% 100%; /* Animation du dégradé */
+  }
 }
 
 .stories-container .story {
@@ -98,7 +133,7 @@
   position: absolute;
   top: 0rem;
   justify-content: space-between;
-  z-index: 43;
+  z-index: 1;
   width: 90%;
   background: linear-gradient(transparent, #fff 130%);
   border-radius: 22px;
@@ -111,7 +146,7 @@
   bottom: 0rem;
   justify-content: space-between;
   align-items: center;
-  z-index: 43;
+  z-index: 1;
   width: 90%;
   background: linear-gradient(transparent, #fff 130%);
   border-radius: 22px;
@@ -139,7 +174,7 @@
   justify-content: space-between;
   align-items: center;
   position: relative;
-  margin-right: 2rem;
+  margin-right: 1rem;
   cursor: pointer;
   font-size: 1.4rem;
 }
@@ -161,11 +196,10 @@
 
 .stories .bloc-profile-author .profile-picture {
   width: 1.9rem;
-  z-index: 22
+  z-index: 12
 }
 
 .stories .bloc-profile-author {
-  /* ... Autres propriétés ... */
   white-space: nowrap;
   overflow: hidden;
   text-overflow: ellipsis;
@@ -218,7 +252,7 @@
 .stories-full-view {
   position: fixed;
   inset: 0;
-  z-index:30;
+  z-index:70;
   background: var(--color-dark);
   display: none;
   place-items: center;
@@ -234,7 +268,7 @@
 
 .stories-full-view .close-btn {
   position: absolute;
-  top: 0.4rem;
+  top: 0.5rem;
   right: 0rem;
   width: 30px;
   background: #444;
@@ -242,7 +276,7 @@
   border-radius: 50%;
   padding: 10px;
   display: flex;
-  z-index: 50;
+  z-index: 2;
   cursor: pointer;
 }
 
@@ -267,10 +301,43 @@
   top: 5rem;
 }
 
-@media screen (max-width: 600px) {
-  .stories-full-view .close-btn {
-    position: absolute;
-    top: 2rem;
-    left: 2rem;
+@media screen and (max-width: 600px) {
+
+  .stories-full-view .previous-btn,
+  .stories-full-view .next-btn {
+    display: none;
   }
+
+}
+
+/* Styles pour les appareils portables (ex. iPhone) */
+@media screen and (max-width: 767px) {
+  .stories-full-view .previous-btn,
+  .stories-full-view .next-btn {
+    display: none;
   }
+}
+
+/* Styles pour les iPad en mode portrait */
+@media screen and (min-width: 768px) and (max-width: 1023px) and (orientation: portrait) {
+
+  .stories-full-view .previous-btn,
+  .stories-full-view .next-btn {
+    display: none;
+  }
+}
+
+@media screen and (min-width: 1200px) {
+  .stories-full-view .previous-btn,
+  .stories-full-view .next-btn {
+    display: flex;
+  }
+}
+
+/* Styles pour les iPad en mode paysage */
+@media screen and (min-width: 768px) and (max-width: 1023px) and (orientation: landscape) {
+  .stories-full-view .previous-btn,
+  .stories-full-view .next-btn {
+    display: none;
+  }
+}

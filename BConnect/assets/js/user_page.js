@@ -135,11 +135,25 @@ document.querySelector('.mini-button').addEventListener('dblclick',()=>{
 });
 
 // ..............Liked button.............
-document.querySelectorAll('.fa-heart').forEach(liked=>{
-    liked.addEventListener('click',()=>{
+document.querySelectorAll('.fa-heart').forEach(liked => {
+    liked.addEventListener('click', () => {
         liked.classList.toggle('liked');
-    })
-})
+
+        const postId = liked.closest('.feed').getAttribute('data-post-id');
+
+        if (liked.classList.contains('liked')) {
+            localStorage.setItem(`post_liked_${postId}`, 'true');
+        } else {
+            localStorage.removeItem(`post_liked_${postId}`);
+        }
+    });
+
+    const postId = liked.closest('.feed').getAttribute('data-post-id');
+    if (localStorage.getItem(`post_liked_${postId}`) === 'true') {
+        liked.classList.add('liked');
+    }
+});
+
 
 
 // ......................Theme CustoMize........................

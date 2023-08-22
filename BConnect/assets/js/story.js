@@ -108,23 +108,24 @@ const updateFullView = () => {
   ) {
     storyImageFull.src = allStories[currentActive][currentActiveSubStory].imageUrl;
     storyAuthorFull.innerHTML = allStories[currentActive][currentActiveSubStory].author;
-    displayFooter(currentActiveSubStory);
+    displayFooter(allStories[currentActive][currentActiveSubStory].id);
+    createIndicators(currentActive, currentActiveSubStory);
   }
 };
 
 const displayFooter = (i) => {
-  document.querySelectorAll('.story-footer').forEach((footer, ind) => {
-      if (i === ind) {
-          footer.style.display = 'flex'; // Affiche le pied de page du sous-story actif
+  document.querySelectorAll('.story-footer').forEach((footer, index) => {
+      if (i === index) {
+          footer.style.display = 'flex';
       } else {
-          footer.style.display = 'none'; // Masque les pieds de page des autres sous-histoires
+          footer.style.display = 'none';
       }
   });
 }
 
 const showFullView = (index) => {
   currentActive = index;
-  displayFooter(index);
+  displayFooter(allStories[currentActive][currentActiveSubStory].id);
   updateFullView();
   storiesFullView.classList.add("active");
 };
@@ -133,14 +134,11 @@ let currentActive = 0;
 let currentActiveSubStory = 0;
 
 const createStoryFooter = () => {
-
-  // -----------  Footer-story-showFullView -------------
-  allStories.forEach((subStory, i) => {
-    subStory.forEach((story, i) => {
+  allStories.forEach((subStory) => {
+    subStory.forEach((story) => {
       const storyFullViewContent = document.querySelector('.stories-full-view .content');
-
       const footerStory = document.createElement('div');
-      footerStory.classList.add('story-footer')
+      footerStory.classList.add('story-footer');
 
       const messageInput = document.createElement('div');
       messageInput.classList.add('input-message');
@@ -154,17 +152,9 @@ const createStoryFooter = () => {
       const btnActionStory = document.createElement('div');
       btnActionStory.classList.add('btn-action-story');
 
-      // heart
-      const spanHeart = document.createElement('span');
-      spanHeart.innerHTML = '<i class="fa fa-heart"></i>';
-      spanHeart.classList.add('bouton-j-aime');
-      spanHeart.dataset.storyId = story.id; // Attribuez l'ID de l'histoire en tant qu'attribut de données
-      const spanSend =document.createElement('span');
+      const spanHeart = createHeartButton(story.id);
+      const spanSend = document.createElement('span');
       spanSend.innerHTML = '<i class="fa-regular fa-paper-plane"></i>';
-
-      btnActionStory.appendChild(spanHeart);
-      btnActionStory.appendChild(spanSend);
-      //Fin heart
 
       btnActionStory.appendChild(spanHeart);
       btnActionStory.appendChild(spanSend);
@@ -174,16 +164,66 @@ const createStoryFooter = () => {
 
       storyFullViewContent.appendChild(footerStory);
     });
+  });
+};
 
+const createHeartButton = (storyId) => {
+  const spanHeart = document.createElement('span');
+  spanHeart.innerHTML = '<i class="fa fa-heart"></i>';
+  spanHeart.classList.add('bouton-j-aime');
+  spanHeart.dataset.contentId = storyId;
+  const isLiked = localStorage.getItem(`liked_${storyId}`);
+  if (isLiked === 'true') {
+    spanHeart.classList.add('liked');
+  }
+
+  spanHeart.addEventListener('click', () => {
+    spanHeart.classList.toggle('liked');
+
+    if (spanHeart.classList.contains('liked')) {
+      localStorage.setItem(`liked_${storyId}`, 'true');
+    } else {
+      localStorage.removeItem(`liked_${storyId}`);
+    }
   });
 
-  document.querySelectorAll('.bouton-j-aime').forEach(spanHeart => {
-    spanHeart.addEventListener('click', () => {
-    spanHeart.classList.toggle('liked');
-    })
-});
+  return spanHeart;
+};
 
+
+const createIndicators = (activeStory, activeIndicators) => {
+  const divIndicators = document.createElement('div');
+  divIndicators.classList.add('indicators');
+
+  // Supprimer les anciens indicateurs s'ils existent
+  const oldIndicators = document.querySelector('.bloc-img-story .indicators');
+  if (oldIndicators) {
+    oldIndicators.remove();
+  }
+
+  const spans = [];
+
+  for (let i = 0; i < allStories[activeStory].length; i++) {
+    const span = document.createElement('span');
+    divIndicators.appendChild(span);
+    spans.push(span);
+  }
+
+  for (let i = 0; i < spans.length; i++) {
+    if(i === activeIndicators) {
+      spans[i].classList.add('active');
+    }
+  }
+
+  const activeIndicator = divIndicators.querySelector('.active');
+  activeIndicator.addEventListener('animationend', () => {
+    //On passe au suivant , haha
+    next();
+  });
+
+  document.querySelector('.bloc-img-story').appendChild(divIndicators);
 }
+
 
 const createStories = () => {
   allStories.forEach((subStory, i) => {
@@ -213,7 +253,6 @@ const createStories = () => {
 
     story.addEventListener("click", () => {
       showFullView(i);
-
     });
   });
 };
@@ -253,6 +292,30 @@ storiesContent.addEventListener("scroll", () => {
   }
 });
 
+const next = () => {
+  if (currentActive < allStories.length - 1 || currentActiveSubStory < allStories[currentActive].length - 1) {
+    if (currentActiveSubStory >= allStories[currentActive].length - 1) {
+      currentActive++;
+      currentActiveSubStory = 0;
+    } else {
+      currentActiveSubStory++;
+    }
+  }
+  updateFullView();
+}
+
+const previous = () => {
+  if (currentActive > 0 || currentActiveSubStory > 0) {
+    if (currentActiveSubStory > 0) {
+      currentActiveSubStory--;
+    } else {
+      currentActive--;
+      currentActiveSubStory = allStories[currentActive].length - 1;
+    }
+  }
+  updateFullView();
+}
+
 // Gestionnaire d'événement pour la détection du défilement
 window.addEventListener("scroll", () => {
   if (window.scrollX > 0) {
@@ -280,27 +343,24 @@ window.addEventListener("scroll", () => {
   }
 });
 
+document.querySelector('.bloc-img-story').addEventListener('click', function(event) {
+    const storyBlock = document.querySelector('.bloc-img-story');
+    const storyBlockWidth = storyBlock.clientWidth;
+    const clickX = event.clientX - storyBlock.getBoundingClientRect().left;
+
+    if (clickX < storyBlockWidth / 3) {
+        previous();
+    } else if (clickX > storyBlockWidth - (storyBlockWidth / 3)) {
+        next();
+    }
+});
+
+
 
 nextBtnFull.addEventListener("click", () => {
-  if (currentActive < allStories.length - 1 || currentActiveSubStory < allStories[currentActive].length - 1) {
-    if (currentActiveSubStory >= allStories[currentActive].length - 1) {
-      currentActive++;
-      currentActiveSubStory = 0;
-    } else {
-      currentActiveSubStory++;
-    }
-  }
-  updateFullView();
+  next();
 });
 
 previousBtnFull.addEventListener("click", () => {
-  if (currentActive > 0 || currentActiveSubStory > 0) {
-    if (currentActiveSubStory > 0) {
-      currentActiveSubStory--;
-    } else {
-      currentActive--;
-      currentActiveSubStory = allStories[currentActive].length - 1;
-    }
-  }
-  updateFullView();
+  previous();
 });

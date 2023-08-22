@@ -204,7 +204,11 @@
                        </div>
 
                        <div class="story">
-                         <img src="images/3.jpg" class="img-post" alt="" />
+
+                         <div class="bloc-img-story">
+
+                           <img src="images/3.jpg" class="img-post" alt="" />
+                         </div>
                          <div class="story-full-head">
                            <div class="profile-picture" id="my-profile-picture">
                                <img src="../../assets/images/icons/default-user.png" alt="">
@@ -265,7 +269,9 @@
                        <!--.............. Feed Aria Start............... -->
                        <div class="feeds">
 
-                        <div class="feed">
+                         <!-- attribut unique for each post data-post-id -->
+
+                        <div class="feed" data-post-id="1">
                             <!-- ....Feed Top.... -->
                             <div class="feed-top">
                                 <div class="user">
@@ -322,7 +328,7 @@
 
                         </div>
 
-                        <div class="feed ">
+                        <div class="feed" data-post-id="2">
                             <!-- ....Feed Top.... -->
                             <div class="feed-top">
                                 <div class="user">
