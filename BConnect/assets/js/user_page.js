@@ -82,28 +82,11 @@ Dlete.forEach(deletee=>{
 
 //.............. ...Start Profile Popup................
 
-document.querySelectorAll('#my-profile-picture').forEach(AllProfile => {
-    AllProfile.addEventListener('click',()=>{
-        document.querySelector('.profile-popup').style.display='flex'
-    })
-});
-
 document.querySelectorAll('.close').forEach(AllCloser=>{
     AllCloser.addEventListener('click',()=>{
-        document.querySelector('.profile-popup').style.display='none'
         document.querySelector('.add-post-popup').style.display='none'
         document.querySelector('.theme-customize').style.display='none'
         document.querySelector('.story-full').style.display='none'
-    })
-});
-
-document.querySelector('#profile-upload').addEventListener('change',()=> {
-  document.querySelector('img.preview').src = URL.createObjectURL(document.querySelector('#profile-upload').files[0])
-})
-
-document.querySelector('#save-picture').addEventListener('click',()=>{
-    document.querySelectorAll('#my-profile-picture img').forEach(AllMyProfileImg=>{
-        AllMyProfileImg.src = URL.createObjectURL(document.querySelector('#profile-upload').files[0])
     })
 });
 
@@ -189,38 +172,6 @@ themes.forEach(theme => {
   document.addEventListener('click', closeThemeModal);
 })
 
-
-
-//................... Font Size..................
-let fontSize = document.querySelectorAll('.choose-size span');
-
-const removeActiveSelector = ()=>{
-    fontSize.forEach(size=>{
-        size.classList.remove('active')
-    })
-}
-
-
-fontSize.forEach(size=>{
-    size.addEventListener('click',()=>{
-        let fontSize;
-        removeActiveSelector();
-        size.classList.toggle('active');
-
-
-        if(size.classList.contains('font-size-1')){
-            fontSize = '10px';
-        }else if(size.classList.contains('font-size-2')){
-            fontSize = '13px';
-        }else if(size.classList.contains('font-size-3')){
-            fontSize = '16px';
-        }
-        // Html root fontsize change...
-        document.querySelector('html').style.fontSize = fontSize;
-    })
-})
-
-
 //................... Primary Color..................
 
 let colorpallete = document.querySelectorAll('.choose-color span');
@@ -255,8 +206,6 @@ colorpallete.forEach(color => {
     })
 });
 
-
-
 //...................Background Change..................
 
 let darkBtn = document.getElementById('dark-btn');
@@ -282,18 +231,6 @@ if(localStorage.getItem('theme') == 'light') {
 } else {
   localStorage.setItem('theme', 'light');
 }
-
-//*******Story full ***********
-
-
-// footer
-
-/**
-  The setupScrollBehavior function takes an element (in this case, the footer element) as a parameter.
-  It creates a scroll event listener that compares the current scroll position with the previous position.
-  If the current position is smaller (the user is scrolling upwards), the footer is hidden by moving its content downwards (100% out of view).
-  If the current position is larger (the user is scrolling downwards), the footer is displayed by placing its content back to its normal position.
-*/
 
 /**
  * Scroll behavior to show/hide the footer based on user scroll direction.

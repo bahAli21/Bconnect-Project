@@ -224,30 +224,19 @@ const createIndicators = (activeStory, activeIndicators) => {
   document.querySelector('.bloc-img-story').appendChild(divIndicators);
 }
 
-
 const createStories = () => {
   allStories.forEach((subStory, i) => {
     const story = document.createElement("div");
     story.classList.add("story");
-    const img = document.createElement("img");
-    img.src = subStory[0].imageUrl;
-    const blocProfile =  document.createElement("div");
-    blocProfile.classList.add("bloc-profile-author");
-    const profilePicture =  document.createElement("div");
-    profilePicture.classList.add("profile-picture");
-    const picture =  document.createElement("img");
-    picture.src = subStory[2].imageUrl;
-    const author = document.createElement("div");
-    author.classList.add("author");
-    author.innerHTML = subStory[0].author;
-
-    profilePicture.appendChild(picture);
-    blocProfile.appendChild(profilePicture);
-    blocProfile.appendChild(author);
-
-
-    story.appendChild(img);
-    story.appendChild(blocProfile);
+    story.innerHTML = `
+        <img src="${subStory[0].imageUrl}" alt="">
+        <div class="bloc-profile-author">
+            <div class="profile-picture">
+                <img src="${subStory[2].imageUrl}" alt="">
+            </div>
+            <div class="author">${subStory[0].author}</div>
+        </div>
+    `;
 
     stories.appendChild(story);
 
@@ -320,26 +309,10 @@ const previous = () => {
 window.addEventListener("scroll", () => {
   if (window.scrollX > 0) {
     // Faire l'action du bouton "Précédent"
-    if (currentActive > 0 || currentActiveSubStory > 0) {
-      if (currentActiveSubStory > 0) {
-        currentActiveSubStory--;
-      } else {
-        currentActive--;
-        currentActiveSubStory = allStories[currentActive].length - 1;
-      }
-    }
-    updateFullView();
+    previous();
   } else if (window.scrollX < 0) {
     // Faire l'action du bouton "Suivant"
-    if (currentActive < allStories.length - 1 || currentActiveSubStory < allStories[currentActive].length - 1) {
-      if (currentActiveSubStory >= allStories[currentActive].length - 1) {
-        currentActive++;
-        currentActiveSubStory = 0;
-      } else {
-        currentActiveSubStory++;
-      }
-      updateFullView();
-    }
+    next();
   }
 });
 
@@ -354,8 +327,6 @@ document.querySelector('.bloc-img-story').addEventListener('click', function(eve
         next();
     }
 });
-
-
 
 nextBtnFull.addEventListener("click", () => {
   next();
