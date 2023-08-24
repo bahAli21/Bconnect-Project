@@ -268,123 +268,71 @@
                        <!--.............. Feed Aria Start............... -->
                        <div class="feeds">
 
-                         <!-- attribut unique for each post data-post-id -->
+                       <?php require_once('../test.php') ?>
+                      <?php if(isset($feeds)): ?>
+                        <?php foreach ($feeds as $feed): ?>
+                          <div class="feed" data-post-id="<?= $feed->getId() ?>">
+                              <!-- ....Feed Top.... -->
+                              <div class="feed-top">
+                                  <div class="user">
+                                      <div class="profile-picture">
+                                          <img src="<?= $feed->getProfilePicture() ?>" alt="">
+                                      </div>
+                                      <div class="info">
+                                          <h3>
+                                              <?= ucwords($feed->getFullName()) ?>
+                                          </h3>
+                                          <div class="time text-gry">
+                                              <small><?= ucfirst($feed->getLocation()) ?>, <span><?= $feed->getDuration() ?></span> </small>
+                                          </div>
+                                      </div>
+                                  </div>
+                                  <span class="edit">
+                                      <img src="../../assets/images/icons/three-dots.svg" >
+                                  </span>
+                              </div>
+                              <!-- ...Feed Img.... -->
+                              <div class="feed-img">
+                                  <img src="<?= $feed->getPicture() ?>" alt="">
+                              </div>
+                              <!-- ...Feed Action Aria... -->
+                              <div class="action-button">
+                                  <div class="interaction-button">
+                                      <span><i class="fa fa-heart"></i></span>
+                                      <span><i class="fa fa-comment-dots"></i></span>
+                                      <span><i class="fa fa-link"></i></span>
+                                  </div>
+                                  <div class="bookmark">
+                                      <i class="fa fa-bookmark"></i>
+                                  </div>
+                              </div>
 
-                        <div class="feed" data-post-id="1">
-                            <!-- ....Feed Top.... -->
-                            <div class="feed-top">
-                                <div class="user">
-                                    <div class="profile-picture">
-                                        <img src="../../assets/images/img/13.jpg" alt="">
-                                    </div>
-                                    <div class="info">
-                                        <h3>Leo Messi</h3>
-                                        <div class="time text-gry">
-                                            <small> QATAR, <span>1 MONTH AGO</span> </small>
-                                        </div>
-                                    </div>
-                                </div>
-                                <span class="edit">
-                                    <img src="../../assets/images/icons/three-dots.svg" >
-                                </span>
-                            </div>
-                            <!-- ...Feed Img.... -->
-                            <div class="feed-img">
-                                <img src="../../assets/images/img/13.jpg" alt="">
-                            </div>
-                            <!-- ...Feed Action Aria... -->
-                            <div class="action-button">
-                                <div class="interaction-button">
-                                    <span><i class="fa fa-heart"></i></span>
-                                    <span><i class="fa fa-comment-dots"></i></span>
-                                    <span><i class="fa fa-link"></i></span>
-                                </div>
-                                <div class="bookmark">
-                                    <i class="fa fa-bookmark"></i>
-                                </div>
-                            </div>
-
-                            <!--.... Liked by.... -->
-                            <div class="liked-by">
-                                <span><img src="../../assets/images/img/2.jpg" alt=""></span>
-                                <span><img src="../../assets/images/img/1.png" alt=""></span>
-                                <span><img src="../../assets/images/img/said.jpg" alt=""></span>
-                                <p>Liked by <b>Said Balde</b> and <b>77 comments other</b></p>
-                            </div>
-
-
-                            <!-- ......Caption...... -->
-                            <div class="caption">
-                                <div class="title">Coupe du monde 2022 </div>
-                                <p><b>Leo Messi </b> I'm de greatest of all history.
-                                <span class="hars-tag">#Cristiano Ronaldo</span></p>
-                            </div>
-
-                            <!-- ........Comments...... -->
-                            <div class="comments text-gry">
-                                View all comments
-                            </div>
-
-                        </div>
-
-                        <div class="feed" data-post-id="2">
-                            <!-- ....Feed Top.... -->
-                            <div class="feed-top">
-                                <div class="user">
-                                    <div class="profile-picture">
-                                        <img src="../../assets/images/img/4.jpg" alt="">
-                                    </div>
-                                    <div class="info">
-                                        <h3>
-                                            Ali BAH
-                                        </h3>
-                                        <div class="time text-gry">
-                                            <small>America, <span>JUST NOW</span> </small>
-                                        </div>
-                                    </div>
-                                </div>
-                                <span class="edit">
-                                    <img src="../../assets/images/icons/three-dots.svg" >
-                                </span>
-                            </div>
-                            <!-- ...Feed Img.... -->
-                            <div class="feed-img">
-                                <img src="../../assets/images/img/10.jpg" alt="">
-                            </div>
-                            <!-- ...Feed Action Aria... -->
-                            <div class="action-button">
-                                <div class="interaction-button">
-                                    <span><i class="fa fa-heart"></i></span>
-                                    <span><i class="fa fa-comment-dots"></i></span>
-                                    <span><i class="fa fa-link"></i></span>
-                                </div>
-                                <div class="bookmark">
-                                    <i class="fa fa-bookmark"></i>
-                                </div>
-                            </div>
-
-                            <!--.... Liked by.... -->
-                            <div class="liked-by">
-                                <span><img src="../../assets/images/img/said.jpg" alt=""></span>
-                                <span><img src="../../assets/images/img/2.jpg" alt=""></span>
-                                <p>Liked by <b>David mark</b> and <b>40 comments other</b></p>
-                            </div>
+                              <!--.... Liked by.... -->
+                              <div class="liked-by">
+                                  <span><img src="<?= $feed->getLikedBy()['first'] ?>" alt=""></span>
+                                  <span><img src="<?= $feed->getLikedBy()['second'] ?>" alt=""></span>
+                                  <span><img src="<?= $feed->getLikedBy()['third'] ?>" alt=""></span>
+                                  <p>Liked by <b><?= ucwords($feed->getUserLiked()['name']) ?></b> and <b><?= $feed->getUserLiked()['number'] ?> <?= $feed->getUserLiked()['description'] ?></b></p>
+                              </div>
 
 
-                            <!-- ......Caption...... -->
-                            <div class="caption">
-                                <div class="title">Le rêve</div>
-                                <p><b>Ali BAH </b>inchallah je vais y arrivé.
-                                <span class="hars-tag">#Armée</span></p>
-                            </div>
+                              <!-- ......Caption...... -->
+                              <div class="caption">
+                                  <div class="title"><?= $feed->getTitleLegend() ?></div>
+                                  <p><b><?= ucwords($feed->getFullName()) ?> </b><?= $feed->getDescription() ?>
+                                  <span class="hars-tag"><?= $feed->getHarshTag() ?></span></p>
+                              </div>
 
-                            <!-- ........Comments...... -->
-                            <div class="comments text-gry">
-                                View all comments
-                            </div>
-                        </div>
+                              <!-- ........Comments...... -->
+                              <div class="comments text-gry">
+                                  View all comments
+                              </div>
+                          </div>
+                        <?php endforeach ?>
+                      <?php endif ?>
+                    </div>
 
-                       </div>
+
                        <!--.............. Feed Aria End............... -->
                     </div>
                      <!--.............. Feeds Aria End............... -->
