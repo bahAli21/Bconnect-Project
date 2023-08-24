@@ -52,6 +52,11 @@ MEDIA QUERIES FOR SMALL LAPTOPS AND BIG TABLETS
   .add-post-1 {
     display: none;
   }
+
+  .logo h3 {
+    margin-left: 1rem;
+  }
+
 }
 
 /*******************
@@ -100,7 +105,7 @@ MEDIA QUERIES FOR SMALL TABLETS AND MOBILE PHONES
       font-size: .9rem;
       font-weight: 500;
       text-transform: uppercase;
-
+      margin-left: 1rem;
   }
 
   nav .serch-bar input[type="search"]{
