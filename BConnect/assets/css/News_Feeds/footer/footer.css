@@ -1,0 +1,67 @@
+/* En quête de connaissances et passionné d'informatique, je suis BAH Mamadou, étudiant en Licence 2 Mathématiques Informatique à Lyon 1. La programmation est ma toile, et chaque ligne de code est un coup de pinceau qui crée des solutions et donne vie à des idées. */
+footer {
+  position: sticky;
+  margin-bottom: 1rem;
+  margin-left: 5%;
+  border-radius:var(--card-border-radius) ;
+  z-index: 10;
+}
+
+.footer {
+  display: none;
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  width: 90%;
+  background-color: #F4F6F8;
+  justify-content: space-around;
+  align-items: center;
+  padding: 10px;
+  box-shadow: 0px -2px 4px rgba(0, 0, 0, 0.1);
+  height: 60px;
+}
+
+footer .menu-item {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: relative;
+}
+
+footer .menu-item span img {
+  width: 24px;
+  height: 24px;
+  margin-top: 0;
+  transition: filter 0.3s ease-in-out;
+  position: relative;
+  cursor: pointer;
+}
+
+footer .menu-item span img:hover {
+    filter: brightness(0.8);
+}
+
+footer .menu-item h6 {
+    position: absolute;
+    top: 1.3rem; /* Espacement entre l'icône et le titre */
+    color: #1C1E21;
+    cursor: pointer;
+}
+
+footer .active h6{
+    color: var(--color-primary);
+    text-decoration: underline;
+
+}
+
+footer .notfy-counter{
+    background: var(--color-danger);
+    color: var(--color-white);
+    width: fit-content;
+    font-size: .7rem;
+    border-radius: 30%;
+    padding: .1rem .4rem;
+    position: absolute;
+    top: -.6rem;
+    left: 1rem;
+}

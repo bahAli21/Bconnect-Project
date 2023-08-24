@@ -1,0 +1,89 @@
+/* En quête de connaissances et passionné d'informatique, je suis BAH Mamadou, étudiant en Licence 2 Mathématiques Informatique à Lyon 1. La programmation est ma toile, et chaque ligne de code est un coup de pinceau qui crée des solutions et donne vie à des idées. */
+
+.main-left{
+    position: relative;
+    height: max-content;
+    top: .8rem;
+
+}
+
+.main-left .profile{
+    background: var(--bg-color);
+    padding: var(--card-padding);
+    border-radius: var(--card-border-radius);
+    width: 100%;
+    gap: 1rem;
+    display: flex;
+}
+
+aside{
+    margin-top: 1rem;
+    border-radius:var(--card-border-radius) ;
+}
+
+aside .menu-item {
+    display: flex;
+    align-items: center;
+    height: 4rem;
+    position: relative;
+    cursor: pointer;
+    transition: 300ms ease all;
+    background: var(--bg-color);
+}
+aside .menu-item:hover{
+    background: var(--color-light);
+}
+aside .menu-item span img{
+    width: 1.7rem;
+    margin-left: 2rem;
+    position: relative;
+    background: var(--color-light);
+    color: #000;
+}
+
+aside .notfy-counter{
+    background: var(--color-danger);
+    color: var(--color-white);
+    width: fit-content;
+    font-size: .7rem;
+    border-radius: 30%;
+    padding: .1rem .4rem;
+    position: absolute;
+    top: .7rem;
+    left: 3.1rem;
+}
+
+.nt{
+    left: 3rem !important;
+}
+
+
+
+aside .menu-item h3{
+    margin-left: 1.5rem;
+    font-size: 1rem;
+
+}
+aside .active{
+    background: var(--color-light);
+}
+aside .active h3{
+    color: var(--color-primary);
+}
+aside .active::before{
+    content: '';
+    display: block;
+    width: .5rem;
+    height: 100%;
+    background: var(--color-primary);
+}
+aside .menu-item:first-child{
+    overflow: hidden;
+    border-top-left-radius: var(--card-border-radius);
+    border-top-right-radius: var(--card-border-radius);
+}
+aside .menu-item:nth-last-child(1){
+    overflow: hidden;
+    border-bottom-left-radius: var(--card-border-radius);
+    border-bottom-right-radius: var(--card-border-radius);
+}

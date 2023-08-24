@@ -1,0 +1,66 @@
+/* En quête de connaissances et passionné d'informatique, je suis BAH Mamadou, étudiant en Licence 2 Mathématiques Informatique à Lyon 1. La programmation est ma toile, et chaque ligne de code est un coup de pinceau qui crée des solutions et donne vie à des idées. */
+/* ...........Java Script Other Classes............ */
+.boxshadow1{
+    box-shadow: 0 0 .5rem var(--color-primary);
+}
+
+.liked{
+    font-weight: bold !important;
+    color: var(--color-danger);
+}
+
+
+/* ..............Custom Style............. */
+.container{
+    width: 90%;
+    margin: 0 auto;
+}
+
+img{
+    display: block;
+    width: 100%;
+}
+
+.profile-picture{
+    width: 2.9rem;
+    aspect-ratio: 1/1;
+    border-radius: 50%;
+    cursor: pointer;
+    overflow: hidden;
+}
+.profile-picture:hover{
+    opacity: 0.75;
+}
+
+.btn{
+    padding: var(--btn-padding);
+    display: inline-block;
+    cursor: pointer;
+    border-radius: var(--border-radius);
+    font-size: 0.9rem;
+    font-weight: 500;
+    transition: 300ms ease all;
+}
+.btn:hover{
+    opacity: 0.75;
+}
+.btn-primary{
+    background: var(--color-primary);
+    color: var(--color-white);
+}
+
+.logout {
+  margin-top: 10px;
+}
+
+.text-bold{
+    font-weight: 600;
+}
+.text-gry{
+    color: var(--color-gray);
+}
+
+h3, h4, h5, h6, p, .title, small, .text-gray, .add-post-2,
+input[type="search"]::placeholder, input[type="text"]::placeholder {
+  color: var(--text-color);
+}

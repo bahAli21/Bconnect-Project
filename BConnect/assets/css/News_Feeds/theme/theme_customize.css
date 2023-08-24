@@ -1,0 +1,35 @@
+/* En quête de connaissances et passionné d'informatique, je suis BAH Mamadou, étudiant en Licence 2 Mathématiques Informatique à Lyon 1. La programmation est ma toile, et chaque ligne de code est un coup de pinceau qui crée des solutions et donne vie à des idées. */
+/*.............. Start Theme Customize popup.............. */
+
+.theme-customize {
+  background: rgba(255, 255, 255, 0.5);
+  width: 100vw;
+  height: 100vh;
+  position: fixed;
+  top: 0;
+  left: 0;
+  z-index: 50;
+  text-align: center;
+  display: grid;
+  place-items: center;
+  font-size: 0.9rem;
+  display: none;
+}
+
+.theme-customize-popup-box {
+  width: 70vw;
+  height: 50vh;
+}
+
+.theme-customize-popup-box h1{
+    margin-bottom: -5rem;
+}
+.theme-customize-popup-box .font-size>div{
+    display: flex;
+    padding: var(--search-padding);
+    border-radius: var(--card-border-radius);
+    justify-content: space-between;
+    align-items: center;
+    background: var(--bg-color);
+    margin: 1rem 0;
+}

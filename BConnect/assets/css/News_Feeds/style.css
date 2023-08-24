@@ -1,0 +1,31 @@
+/* En quête de connaissances et passionné d'informatique, je suis BAH Mamadou, étudiant en Licence 2 Mathématiques Informatique à Lyon 1. La programmation est ma toile, et chaque ligne de code est un coup de pinceau qui crée des solutions et donne vie à des idées. */
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600&display=swap');
+/* importation de tous les routeurs .css */
+@import url('config.css');
+@import url('feeds/main_right/main_right_style.css');
+@import url('feeds/feed_style.css');
+@import url('footer/footer.css');
+@import url('nav/navbar.css');
+@import url('popup/add_post.css');
+@import url('stories/story_style.css');
+@import url('theme/theme_style.css');
+@import url('media_screen.css');
+
+
+*, *::before, *::after{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    outline: none;
+    text-decoration: none;
+    list-style: none;
+    border: none;
+}
+
+body{
+   font-family: 'Poppins', sans-serif;
+    color: var(--color-dark);
+    background: var(--body-color);
+    transition: background 0.3s;
+    font-size: 16px;
+}

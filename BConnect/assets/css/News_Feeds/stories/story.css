@@ -1,0 +1,90 @@
+/* En quête de connaissances et passionné d'informatique, je suis BAH Mamadou, étudiant en Licence 2 Mathématiques Informatique à Lyon 1. La programmation est ma toile, et chaque ligne de code est un coup de pinceau qui crée des solutions et donne vie à des idées. */
+.stories-container {
+  max-width: 600px;
+  margin: 24px auto;
+  position: relative;
+}
+
+.stories-container .previous-btn,
+.stories-container .next-btn {
+  width: 30px;
+  position: absolute;
+  z-index: 2;
+  top: 50%;
+  transform: translateY(-50%);
+  background: #444;
+  color: #fff;
+  border-radius: 50%;
+  padding: 10px;
+  display: flex;
+  cursor: pointer;
+}
+
+.stories-container .previous-btn,
+.stories-container .next-btn {
+  opacity: 0;
+  pointer-events: none;
+  transition: all 400ms ease;
+}
+
+.stories-container .previous-btn.active,
+.stories-container .next-btn.active {
+  opacity: 1;
+  pointer-events: auto;
+}
+
+.stories-container .previous-btn {
+  left: 8px;
+}
+
+.stories-container .next-btn {
+  right: 8px;
+}
+
+.stories-container .story {
+  height: 180px;
+  width: 120px;
+  flex-shrink: 0;
+  border-radius: 16px;
+  overflow: hidden;
+  position: relative;
+  cursor: pointer;
+}
+
+.story .icon-add {
+  position: absolute;
+  bottom: 0px;
+  width: 120px;
+  height: 80px;
+  background: var(--color-primary);
+  cursor: pointer;
+}
+
+.stories-container .story img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.bloc-create-story .txt {
+  text-align: center;
+  font-size: 1rem;
+  weight: 500;
+  position: absolute;
+  top: 20%;
+}
+
+.stories-container .stories {
+  display: flex;
+  gap: 8px;
+}
+
+.stories-container .content {
+  overflow-x: scroll;
+  scrollbar-width: none;
+  scroll-behavior: smooth;
+}
+
+.stories-container .content::-webkit-scrollbar {
+  display: none;
+}

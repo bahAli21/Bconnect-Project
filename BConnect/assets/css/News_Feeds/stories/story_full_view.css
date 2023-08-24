@@ -1,0 +1,229 @@
+/* En quête de connaissances et passionné d'informatique, je suis BAH Mamadou, étudiant en Licence 2 Mathématiques Informatique à Lyon 1. La programmation est ma toile, et chaque ligne de code est un coup de pinceau qui crée des solutions et donne vie à des idées. */
+/* full-view-story */
+.stories-full-view .previous-btn,
+.stories-full-view .next-btn {
+  width: 30px;
+  position: absolute;
+  z-index: 2;
+  top: 50%;
+  transform: translateY(-50%);
+  background: #444;
+  color: #fff;
+  border-radius: 50%;
+  padding: 10px;
+  display: flex;
+  cursor: pointer;
+}
+
+.stories-full-view .previous-btn {
+  left: 8px;
+}
+
+.stories-full-view .next-btn {
+  right: 8px;
+}
+
+.story .indicators {
+  position: absolute;
+  top: 60px;
+  display: flex;
+  justify-content: center;
+  width: 100%;
+  box-sizing: border-box;
+  padding: 0 10px;
+}
+
+.story .indicators span {
+  width: 100%;
+  height: 2px;
+  margin: 0 5px;
+  border-radius: 5px;
+  background: var(--color-white);
+  cursor: pointer;
+  overflow: hidden; /* Cache le dépassement de la couleur */
+}
+
+.story .indicators span.active {
+  background: linear-gradient(to right, var(--color-white) 0%, var(--color-success) 100%);
+  background-size: 0% 100%;
+  animation: fillAnimation var(--time-indicators) forwards; /* Utilisation de l'animation fillAnimation */
+}
+
+@keyframes fillAnimation {
+  to {
+    background-size: 100% 100%; /* Animation du dégradé */
+  }
+}
+
+.story-full-head {
+  display: flex;
+  position: absolute;
+  top: 0rem;
+  justify-content: space-between;
+  z-index: 1;
+  width: 90%;
+  background: linear-gradient(transparent, #fff 130%);
+  border-radius: 22px;
+  margin-left: 1.3rem;
+}
+
+.story-footer {
+  display: flex;
+  position: absolute;
+  bottom: 0rem;
+  justify-content: space-between;
+  align-items: center;
+  z-index: 1;
+  width: 90%;
+  background: linear-gradient(transparent, #fff 130%);
+  border-radius: 22px;
+  margin-left: 1.3rem;
+}
+
+.story-footer .input-message {
+  width: 70%;
+}
+
+.story-footer .input-message input {
+  border-radius: 22px;
+  margin: .6rem;
+  padding: 12px;
+  width: 100%;
+  color: var(--color-dark);
+}
+
+.story-footer .input-message input::placeholder {
+  color: var(--color-dark);
+}
+
+.btn-action-story {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  position: relative;
+  margin-right: 1rem;
+  cursor: pointer;
+  font-size: 1.4rem;
+}
+
+.stories .bloc-profile-author {
+  position: absolute;
+  top: 0;
+  left: 0.4rem;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  color: var(--color-white);
+  font-weight: 400;
+  font-size: 0.8rem;
+  white-space: nowrap; /* Empêche le texte de passer sur deux lignes */
+  overflow: hidden; /* Masque le texte qui dépasse */
+  text-overflow: ellipsis; /* Ajoute des points de suspension si le texte est tronqué */
+}
+
+.stories .bloc-profile-author .profile-picture {
+  width: 1.9rem;
+  z-index: 9
+}
+
+.stories .bloc-profile-author {
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  transition: font-size 0.3s; /* Ajout d'une transition fluide */
+}
+
+.stories .bloc-profile-author:hover {
+  white-space: normal;
+  overflow: visible;
+  text-overflow: initial;
+}
+
+
+.stories .bloc-profile-author .author {
+  margin-left: .5rem;
+  margin-top: 0rem;
+}
+
+.story-footer span i.fa-heart{
+  position: absolute;
+  left: -2.8rem;
+  top: .5rem;
+}
+
+.story-full-head .profile-picture {
+  margin-left: 2rem;
+}
+
+.story-full-head .txt {
+  position: absolute;
+  top: 0;
+  left: 5.4rem;
+  font-family: "Roboto", sans-serif;
+  font-weight: bold;
+  color: var(--color-white)
+}
+
+/* Masquer l'input */
+.story input[type="file"] {
+    display: none;
+}
+
+.story-full-head .three-dots {
+  position: absolute;
+  right: 3rem;
+  top: 1rem;
+  cursor: pointer;
+}
+
+.stories-full-view {
+  position: fixed;
+  inset: 0;
+  z-index:70;
+  background: var(--color-dark);
+  display: none;
+  place-items: center;
+}
+
+.stories-full-view.active {
+  display: grid;
+}
+
+.stories-full-view .close-btn:hover {
+  background: var(--color-danger);
+}
+
+.stories-full-view .close-btn {
+  position: absolute;
+  top: 0.5rem;
+  right: 0rem;
+  width: 30px;
+  background: #444;
+  color: #fff;
+  border-radius: 50%;
+  padding: 10px;
+  display: flex;
+  z-index: 2;
+  cursor: pointer;
+}
+
+.stories-full-view .content {
+  height: 90vh;
+  width: 100%;
+  max-width: 550px;
+  position: relative;
+  border-radius: 50px;
+}
+
+.stories-full-view .story {
+  height: 100%;
+  text-align: center;
+}
+
+.stories-full-view .story img.img-post {
+  height: 70%;
+  aspect-ratio: 10/16;
+  object-fit: contain;
+  position: absolute;
+  top: 5rem;
+}

@@ -1,0 +1,33 @@
+/* En quête de connaissances et passionné d'informatique, je suis BAH Mamadou, étudiant en Licence 2 Mathématiques Informatique à Lyon 1. La programmation est ma toile, et chaque ligne de code est un coup de pinceau qui crée des solutions et donne vie à des idées. */
+/* Definition of all variables */
+
+:root{
+    --primary-color-hue: 252;
+    --color-dark-light-theme: 15%;
+    --color-light-light-theme: 92%;
+    --color-white-light-theme: 100%;
+
+    --color-white: hsl(0, 0%, var(--color-white-light-theme));
+    --color-light: hsl(252, 30%, var(--color-light-light-theme));
+    --color-gray: hsl(252, 15%, 60%);
+    --color-primary: hsl(var(--primary-color-hue), 75%, 60%);
+    --color-secondary: hsl(252, 100%, 90%);
+    --color-success: hsl(120, 95%, 60%);
+    --color-danger: hsl(0, 95%, 60%);
+    --color-dark: hsl(252, 30%, var(--color-dark-light-theme));
+    --color-black: hsl(252, 30%, 8%);
+
+
+    --border-radius: 2rem;
+    --card-border-radius: 1rem;
+
+    --btn-padding: .6rem 2rem;
+
+    --search-padding: .6rem 1rem;
+    --card-padding: 1rem;
+
+    --body-color: #efefef;
+    --bg-color: #fff;
+    --text-color: #000;
+    --time-indicators: 15s;
+}

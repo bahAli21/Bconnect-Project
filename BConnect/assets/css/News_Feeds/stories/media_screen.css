@@ -1,0 +1,41 @@
+/* En quête de connaissances et passionné d'informatique, je suis BAH Mamadou, étudiant en Licence 2 Mathématiques Informatique à Lyon 1. La programmation est ma toile, et chaque ligne de code est un coup de pinceau qui crée des solutions et donne vie à des idées. */
+@media screen and (max-width: 600px) {
+
+  .stories-full-view .previous-btn,
+  .stories-full-view .next-btn {
+    display: none;
+  }
+
+}
+
+/* Styles pour les appareils portables (ex. iPhone) */
+@media screen and (max-width: 767px) {
+  .stories-full-view .previous-btn,
+  .stories-full-view .next-btn {
+    display: none;
+  }
+}
+
+/* Styles pour les iPad en mode portrait */
+@media screen and (min-width: 768px) and (max-width: 1023px) and (orientation: portrait) {
+
+  .stories-full-view .previous-btn,
+  .stories-full-view .next-btn {
+    display: none;
+  }
+}
+
+@media screen and (min-width: 1200px) {
+  .stories-full-view .previous-btn,
+  .stories-full-view .next-btn {
+    display: flex;
+  }
+}
+
+/* Styles pour les iPad en mode paysage */
+@media screen and (min-width: 768px) and (max-width: 1023px) and (orientation: landscape) {
+  .stories-full-view .previous-btn,
+  .stories-full-view .next-btn {
+    display: none;
+  }
+}

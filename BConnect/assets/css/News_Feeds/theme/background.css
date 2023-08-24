@@ -1,0 +1,28 @@
+/* En quête de connaissances et passionné d'informatique, je suis BAH Mamadou, étudiant en Licence 2 Mathématiques Informatique à Lyon 1. La programmation est ma toile, et chaque ligne de code est un coup de pinceau qui crée des solutions et donne vie à des idées. */
+/* ........Background......... */
+
+#dark-btn {
+  position: absolute;
+  bottom: auto;
+  background: var(--color-gray);
+  width: 45px;
+  border-radius: 15px;
+  padding: 2px 3px;
+  cursor: pointer;
+  display: flex;
+  transition: padding-left 0.5s, background 0.5s;
+}
+
+#dark-btn span {
+  width: 18px;
+  height: 18px;
+  background: #fff;
+  border-radius: 50%;
+  display: inline-block;
+}
+
+#dark-btn.dark-btn-on {
+  padding-left: 23px;
+  background: #000;
+  border: 1px solid var(--color-gray);
+}

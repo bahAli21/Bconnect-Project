@@ -1,0 +1,52 @@
+/* En quête de connaissances et passionné d'informatique, je suis BAH Mamadou, étudiant en Licence 2 Mathématiques Informatique à Lyon 1. La programmation est ma toile, et chaque ligne de code est un coup de pinceau qui crée des solutions et donne vie à des idées. */
+/* .................Start NavBar.................. */
+
+nav{
+    width: 100%;
+    position: fixed;
+    top: 0;
+    z-index: 10;
+    padding: .7rem 0;
+    background: var(--bg-color);
+}
+.nav-container{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+nav .serch-bar{
+    padding: var(--search-padding);
+    background: var(--bg-color);
+    border-radius: var(--border-radius);
+    border: 1px solid var(--color-gray);
+}
+
+nav .serch-bar input[type="search"]{
+    background: transparent;
+    width: 30vw;
+    margin-left: 1rem;
+    font-size: .9rem;
+    color: var(--color-dark);
+}
+nav .serch-bar input[type="search"]::placeholder{
+    color: var(--text-color);
+}
+.add-post{
+    display: flex;
+    align-items: center;
+    gap: 2rem;
+    cursor: pointer;
+}
+
+.logo h3{
+    font-size: 1.6rem;
+    font-weight: 600;
+    text-transform: uppercase;
+    user-select: none;
+    color: var(--color-dark);
+}
+
+.logo span{
+    color: var(--color-primary);
+}
+/* .................End NavBar.................. */

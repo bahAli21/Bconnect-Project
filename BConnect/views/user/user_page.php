@@ -6,8 +6,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>BCONNECT</title>
     <!-- .................CUSTOM CSS LINK................. -->
-    <link rel="stylesheet" href="../../assets/css/user_page.css">
-    <link rel="stylesheet" href="../../assets/css/story.css">
+    <link rel="stylesheet" href="../../assets/css/News_Feeds/style.css">
     <!-- ...............Font Awesome Link................. -->
     <link rel="stylesheet" href="../../assets/fontawesome-free-6.3.0-web/css/all.css">
 
