@@ -49,4 +49,12 @@ nav .serch-bar input[type="search"]::placeholder{
 .logo span{
     color: var(--color-primary);
 }
+
+.add-post-2 {
+  display: none;
+}
+
+.add-post-1 {
+  display: block;
+}
 /* .................End NavBar.................. */

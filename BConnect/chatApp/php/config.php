@@ -5,7 +5,7 @@
 // 3=> password
 // 4=> database name
 
-$conn = mysqli_connect("localhost","root","","liveChat");
+$conn = mysqli_connect("localhost","root","root","BConnectChatApp");
 
 if(!$conn){
     echo "Connection Failed";

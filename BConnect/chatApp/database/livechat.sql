@@ -18,7 +18,7 @@ SET time_zone = "+00:00";
 /*!40101 SET NAMES utf8mb4 */;
 
 --
--- Database: `livechat`
+-- Database: `BConnectChatApp`
 --
 
 -- --------------------------------------------------------
@@ -39,7 +39,7 @@ CREATE TABLE `messages` (
 --
 
 INSERT INTO `messages` (`messages_id`, `outgoing`, `incoming`, `messages`) VALUES
-(1, '1', '2', 'hello'),
+(1, '1', '2', 'Salut je suis Bah Leo'),
 (2, '1', '2', 'hy'),
 (3, '1', '2', 'hy'),
 (4, '1', '2', 'hy'),
@@ -90,11 +90,11 @@ CREATE TABLE `users` (
 --
 
 INSERT INTO `users` (`id`, `firstName`, `lastName`, `email`, `password`, `image`, `status`) VALUES
-(1, 'code', 'now', 'codenow@gmail.com', 'c5f35c1c4a5ad369a735a89dc92dd131', '5039195321624039056image1.jpg', 'Online'),
-(2, 'code', 'provider', 'codeprovider@gmail.com', 'faa7e5046f85f77abf04a2219f2596fc', '5067225981624039240image5.jpg', 'Offline'),
-(3, 'Coding', 'Trainer', 'codingtrainer@gmail.com', 'e791e06aa70c118c3664e44ca7db5e6a', '3945489681624132843image7.jpg', 'Offline'),
-(4, 'code', 'code', 'codecode@gmail.com', '9a1e2b7451d3625e691fd18591e6aeb8', '5966851251624133771image10.jpg', 'Online'),
-(5, 'pixels', 'coder', 'pixels@gmail.com', 'fb905be5d81d07a936944cc60a6e72e1', '7314873891624134134image2.jpg', 'Offline');
+(1, 'Golden', 'Boy', 'golden@gmail.com', 'golden12345', '3.jpg', 'Online'),
+(2, 'Leo Messi', 'Messi', 'messi@gmail.com', 'messi12345', '13.jpg', 'Offline'),
+(3, 'Said Balde', 'Balde', 'said@gmail.com', 'said12345', 'said.JPG', 'Offline'),
+(4, 'Mamoudou', 'Diallo', 'mamoudou@gmail.com', 'mamoudou12345', '14.jpg', 'Online'),
+(5, 'Fora', 'Diawara', 'fora@gmail.com', 'fora12345', '2.jpg', 'Offline');
 
 --
 -- Indexes for dumped tables
