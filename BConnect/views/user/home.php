@@ -1,6 +1,5 @@
 <!DOCTYPE html>
 <html lang="en" dir="ltr">
-
   <head>
     <meta charset="utf-8">
     <title>Accueil</title>
@@ -41,7 +40,7 @@
                   <label for="password">Password</label>
                 </div>
                 <div class="remember-forgot">
-                  <label for="remember"><input type="checkbox" name="check">Remember me</label>
+                  <label for="remember"><input type="checkbox" name="check">Remember</label>
                   <a href="reset-password.html">Forgot Password ?</a>
                 </div>
                 <button type="submit" name="signin" class="btn">Login</button>
@@ -67,8 +66,10 @@
                   <label for="email">Email</label>
                 </div>
                 <div class="input-box">
-                  <span class="icon"><ion-icon name="eye"></ion-icon></span>
-                  <input type="password" name="password" required>
+                  <span id="toggle-btn-register" class="icon" onclick="togglePasswordRegisterVisibility()" >
+                    <ion-icon name="eye"></ion-icon>
+                  </span>
+                  <input type="password" name="password"  id="registerPassword" required>
                   <label for="password">Password</label>
                 </div>
 
@@ -79,8 +80,13 @@
                 </div>
 
                 <div class="choose-profile">
-                  <input type="file" name="profilePicture" value="" required>
+                    <input type="file" required id="input-file" name="profilePicture">
+                    <label for="input-file" class="icon-img">
+                        <ion-icon name="images-outline"></ion-icon>
+                    </label>
+                    <img src="../../assets/images/img/mini-logo.png" alt="" class="img-choosed" id="img-choose">
                 </div>
+
 
                 <button type="submit" name="signup" class="btn">Register</button>
                 <div class="login-register">

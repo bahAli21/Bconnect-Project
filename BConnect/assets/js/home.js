@@ -10,15 +10,44 @@ popupLogin.addEventListener('click', () => {
   wrapper.classList.remove('active');
 });
 
-function togglePasswordVisibility() {
-  const passwordInput = document.getElementById('password');
-  const toggleButton = document.getElementById('toggle-btn');
+function togglePasswordRegisterVisibility() {
+  const toggleButtonRegister = document.getElementById('toggle-btn-register');
+  const passwordRegister = document.getElementById('registerPassword');
 
-  if (passwordInput.type === 'password') {
-    passwordInput.type = 'text';
-    toggleButton.innerHTML = '<i class="fas fa-eye-slash"></i>';
+  //formulaire d'enregistrement
+  if (passwordRegister.type === 'password') {
+    passwordRegister.type = 'text';
+    toggleButtonRegister.innerHTML = '<i class="fas fa-eye-slash"></i>';
   } else {
-    passwordInput.type = 'password';
-    toggleButton.innerHTML = '<i class="fas fa-eye"></i>';
+    passwordRegister.type = 'password';
+    toggleButtonRegister.innerHTML = '<i class="fas fa-eye"></i>';
   }
+
 }
+
+function togglePasswordVisibility() {
+    const passwordInput = document.getElementById('password');
+    const toggleButton = document.getElementById('toggle-btn');
+
+    if (passwordInput.type === 'password') {
+      passwordInput.type = 'text';
+      toggleButton.innerHTML = '<i class="fas fa-eye-slash"></i>';
+    } else {
+      passwordInput.type = 'password';
+      toggleButton.innerHTML = '<i class="fas fa-eye"></i>';
+    }
+}
+
+document.addEventListener("DOMContentLoaded", function() {
+    const inputFile = document.getElementById("input-file");
+    const imgChoosed = document.getElementById("img-choose");
+
+    inputFile.addEventListener("change", function(event) {
+        const selectedFile = event.target.files[0];
+
+        if (selectedFile) {
+            const imageURL = URL.createObjectURL(selectedFile);
+            imgChoosed.src = imageURL;
+        }
+    });
+});
