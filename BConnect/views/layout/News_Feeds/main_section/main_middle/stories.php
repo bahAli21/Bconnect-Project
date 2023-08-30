@@ -19,7 +19,10 @@
        </svg>
      </div>
 
-     <div class="stories">
+     <div class="storie">
+       <?php $allStories = $story->getAllStories(); ?>
+       <div class="stories" data-stories="<?= htmlspecialchars(json_encode($allStories)) ?>"></div>
+
        <div class="story">
           <label for="file-input" class="icon-add">
               <img src="../../assets/images/icons/plus-icon.png" alt="">
@@ -80,7 +83,7 @@
        </div>
        <div class="story-full-head">
          <div class="profile-picture" id="my-profile-picture">
-             <img src="../../assets/images/icons/default-user.png" alt="">
+             <img src="" alt="" class="profileFull">
          </div>
         <p class="txt author"></p>
         <div class="three-dots">

@@ -40,12 +40,13 @@ function togglePasswordVisibility() {
 
 document.addEventListener("DOMContentLoaded", function() {
     const inputFile = document.getElementById("input-file");
-    const imgChoosed = document.getElementById("img-choose");
+    const imgChoosed = document.getElementById("img-choosed");
 
     inputFile.addEventListener("change", function(event) {
         const selectedFile = event.target.files[0];
 
         if (selectedFile) {
+          imgChoosed.style.display = 'block';
             const imageURL = URL.createObjectURL(selectedFile);
             imgChoosed.src = imageURL;
         }

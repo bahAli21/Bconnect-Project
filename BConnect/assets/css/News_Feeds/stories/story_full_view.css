@@ -106,7 +106,7 @@
   font-size: 1.4rem;
 }
 
-.stories .bloc-profile-author {
+.storie .bloc-profile-author {
   position: absolute;
   top: 0;
   left: 0.4rem;
@@ -121,26 +121,26 @@
   text-overflow: ellipsis; /* Ajoute des points de suspension si le texte est tronqué */
 }
 
-.stories .bloc-profile-author .profile-picture {
+.storie .bloc-profile-author .profile-picture {
   width: 1.9rem;
   z-index: 9
 }
 
-.stories .bloc-profile-author {
+.storie .bloc-profile-author {
   white-space: nowrap;
   overflow: hidden;
   text-overflow: ellipsis;
   transition: font-size 0.3s; /* Ajout d'une transition fluide */
 }
 
-.stories .bloc-profile-author:hover {
+.storie .bloc-profile-author:hover {
   white-space: normal;
   overflow: visible;
   text-overflow: initial;
 }
 
 
-.stories .bloc-profile-author .author {
+.storie .bloc-profile-author .author {
   margin-left: .5rem;
   margin-top: 0rem;
 }

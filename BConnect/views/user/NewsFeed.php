@@ -1,12 +1,14 @@
 <?php
 require_once("../../config/Database.php");
 include_once("../../models/UserModel.php");
+require_once("../../models/StoryModel.php");
 session_start();
 if(!isset($_SESSION['id'])){
     header("location: home.php");
 }
 
- $user = new UserModel; 
+ $story = new Story;
+ $user = new UserModel;
 ?>
 
 <!DOCTYPE html>

@@ -1,90 +1,13 @@
-const allStories = [
-  [
-    {
-      id: 0,
-      author: "The Assassin",
-      imageUrl: "../../assets/images/img/1.jpg",
-    },
-
-    {
-      id: 1,
-      author: "The Assassin",
-      imageUrl: "../../assets/images/img/2.jpg",
-    },
-
-    {
-      id: 2,
-      author: "The Assassin",
-      imageUrl: "../../assets/images/img/3.jpg",
-    },
-  ],
-  [
-    {
-      id: 3,
-      author: "BAH Leo",
-      imageUrl: "../../assets/images/img/9.jpg",
-    },
-
-    {
-      id: 4,
-      author: "BAH Leo",
-      imageUrl: "../../assets/images/img/5.jpg",
-    },
-
-    {
-      id: 5,
-      author: "BAH Leo",
-      imageUrl: "../../assets/images/img/6.jpg",
-    },
-  ],
-  [
-    {
-      id: 6,
-      author: "M. Fora",
-      imageUrl: "../../assets/images/img/7.jpg",
-    },
-
-    {
-      id: 7,
-      author: "Fora",
-      imageUrl: "../../assets/images/img/8.jpg",
-    },
-
-    {
-      id: 8,
-      author: "Fora",
-      imageUrl: "../../assets/images/img/9.jpg",
-    },
-  ],
-  [
-    {
-      id: 9,
-      author: "Golden",
-      imageUrl: "../../assets/images/img/10.jpg",
-    },
-
-    {
-      id: 10,
-      author: "Golden",
-      imageUrl: "../../assets/images/img/11.jpg",
-    },
-
-    {
-      id: 11,
-      author: "Golden",
-      imageUrl: "../../assets/images/img/12.jpg",
-    },
-
-    {
-      id: 12,
-      author: "Golden",
-      imageUrl: "../../assets/images/img/13.jpg",
-    },
-  ],
-
-];
-
 const stories = document.querySelector(".stories");
+const allStoriesJSON = stories.dataset.stories; // Récupère les données JSON depuis l'attribut data-stories
+const allStories = JSON.parse(allStoriesJSON); // Parse les données JSON
+
+// Maintenant, vous pouvez utiliser la variable allStories comme auparavant
+// Par exemple, pour afficher les données dans la console
+console.log(allStories);
+
+
+const storie = document.querySelector(".storie");
 const storiesFullView = document.querySelector(".stories-full-view");
 const closeBtn = document.querySelector(".close-btn");
 const storyImageFull = document.querySelector(".stories-full-view .story img");
@@ -100,28 +23,33 @@ const previousBtnFull = document.querySelector(
 );
 
 const updateFullView = () => {
+
   if (
     currentActive >= 0 &&
     currentActive < allStories.length &&
     currentActiveSubStory >= 0 &&
     currentActiveSubStory < allStories[currentActive].length
   ) {
-    storyImageFull.src = allStories[currentActive][currentActiveSubStory].imageUrl;
+    storyImageFull.src = allStories[currentActive][currentActiveSubStory].postContent;
     storyAuthorFull.innerHTML = allStories[currentActive][currentActiveSubStory].author;
+    const profileFullImage = document.querySelector(".profileFull");
+    profileFullImage.src = "../../assets/images/uploadImg/" + allStories[currentActive][currentActiveSubStory].AuthorImgUrl;
     displayFooter(allStories[currentActive][currentActiveSubStory].id);
     createIndicators(currentActive, currentActiveSubStory);
   }
 };
 
 const displayFooter = (i) => {
-  document.querySelectorAll('.story-footer').forEach((footer, index) => {
-      if (i === index) {
-          footer.style.display = 'flex';
-      } else {
-          footer.style.display = 'none';
-      }
+  document.querySelectorAll('.story-footer').forEach((footer) => {
+    const storyId = footer.getAttribute('data-story-id');
+    if (storyId === i) {
+      footer.style.display = 'flex';
+    } else {
+      footer.style.display = 'none';
+    }
   });
-}
+};
+
 
 const showFullView = (index) => {
   currentActive = index;
@@ -139,6 +67,7 @@ const createStoryFooter = () => {
       const storyFullViewContent = document.querySelector('.stories-full-view .content');
       const footerStory = document.createElement('div');
       footerStory.classList.add('story-footer');
+       footerStory.setAttribute('data-story-id', story.id);
 
       const messageInput = document.createElement('div');
       messageInput.classList.add('input-message');
@@ -195,7 +124,7 @@ const createIndicators = (activeStory, activeIndicators) => {
   const divIndicators = document.createElement('div');
   divIndicators.classList.add('indicators');
 
-  // Supprimer les anciens indicateurs s'ils existent
+  // Supprime les anciens indicateurs s'ils existent
   const oldIndicators = document.querySelector('.bloc-img-story .indicators');
   if (oldIndicators) {
     oldIndicators.remove();
@@ -227,21 +156,22 @@ const createIndicators = (activeStory, activeIndicators) => {
 const createStories = () => {
   allStories.forEach((subStory, i) => {
     const story = document.createElement("div");
+    document.querySelector(".profileFull").src = "../../assets/images/uploadImg/${subStory[0].AuthorImgUrl}"
     story.classList.add("story");
     story.innerHTML = `
-        <img src="${subStory[0].imageUrl}" alt="">
+        <img src="${subStory[0].postContent}" alt="">
         <div class="bloc-profile-author">
             <div class="profile-picture">
-                <img src="${subStory[2].imageUrl}" alt="">
+                <img src="../../assets/images/uploadImg/${subStory[0].AuthorImgUrl}" alt="">
             </div>
             <div class="author">${subStory[0].author}</div>
         </div>
     `;
 
-    stories.appendChild(story);
-
+    storie.appendChild(story);
     story.addEventListener("click", () => {
       showFullView(i);
+
     });
   });
 };

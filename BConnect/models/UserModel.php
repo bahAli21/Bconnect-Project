@@ -1,9 +1,5 @@
 <?php
 
-//include database.php
-
-
-
 interface UserModelInterface
 {
   public function createAcount($fullName, $email, $passwordHash, $userProfile, $createdAt): bool;
@@ -77,7 +73,7 @@ class UserModel implements UserModelInterface {
 
 
     public function emailExist($email): bool {
-      $checkEmailQuery = "SELECT * FROM `users` WHERE email = '{$email}'";
+      $checkEmailQuery = "SELECT * FROM `users` WHERE Email = '{$email}'";
       $runCheckEmailQuery = mysqli_query($this->conn, $checkEmailQuery);
       return mysqli_num_rows($runCheckEmailQuery) > 0;
     }

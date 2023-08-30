@@ -84,9 +84,8 @@
                     <label for="input-file" class="icon-img">
                         <ion-icon name="images-outline"></ion-icon>
                     </label>
-                    <img src="../../assets/images/img/mini-logo.png" alt="" class="img-choosed" id="img-choose">
+                    <img src="../../assets/images/img/mini-logo.png" alt="" class="img-choosed" id="img-choosed">
                 </div>
-
 
                 <button type="submit" name="signup" class="btn">Register</button>
                 <div class="login-register">
