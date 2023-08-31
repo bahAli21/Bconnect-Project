@@ -1,5 +1,4 @@
 <!--...........Start Stories............. -->
-
   <div class="stories-container">
    <div class="content">
      <div class="previous-btn">
@@ -54,6 +53,70 @@
      </div>
    </div>
  </div>
+
+ <!-- Create story bloc full view -->
+
+ <div class="create-stories-full-view">
+
+   <div class="content">
+
+     <div class="create-story">
+
+       <!-- Start Create Story Header -->
+        <div class="header">
+            <div class="previous-btn-create">
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                fill="none"
+                viewBox="0 0 24 24"
+                stroke-width="1.5"
+                stroke="currentColor"
+                class="w-6 h-6"
+              >
+                <path
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                  d="M15.75 19.5L8.25 12l7.5-7.5"
+                />
+              </svg>
+            </div>
+            <div class="write-text ">
+                 <p title="write something">aA</p>
+            </div>
+            <div class="palette">
+             <img src="../../assets/images/icons/menu.png" alt="">
+            </div>
+        </div>
+        <!-- End Create Story Header -->
+        <div class="text-editor hidden">
+          <textarea id="text-input" placeholder=""></textarea>
+        </div>
+
+        <div class="body">
+          <!-- Genere with JavaScript -->
+        </div>
+
+
+
+        <div class="footer">
+           <div class="left">
+             <img src="../../assets/images/img/3.jpg" alt="">
+             <p class="text">Votre story</p>
+           </div>
+           <div class="right">
+             <div class="icone-start">
+               <img src="../../assets/images/icons/backrebel.png" alt="">
+             </div>
+             <p class="text">Amis proches</p>
+           </div>
+           <div class="musique">
+             <img src="../../assets/images/icons/music.png" alt="" title="add music on your story">
+           </div>
+        </div>
+    </div>
+  </div>
+ </div>
+
 
  <div class="stories-full-view">
 

@@ -1,14 +1,10 @@
 const stories = document.querySelector(".stories");
-const allStoriesJSON = stories.dataset.stories; // Récupère les données JSON depuis l'attribut data-stories
+const allStoriesJSON = stories.dataset.stories; // Récupèration des données JSON depuis l'attribut data-stories
 const allStories = JSON.parse(allStoriesJSON); // Parse les données JSON
-
-// Maintenant, vous pouvez utiliser la variable allStories comme auparavant
-// Par exemple, pour afficher les données dans la console
-console.log(allStories);
-
 
 const storie = document.querySelector(".storie");
 const storiesFullView = document.querySelector(".stories-full-view");
+const createStoriesFullView = document.querySelector(".create-stories-full-view");
 const closeBtn = document.querySelector(".close-btn");
 const storyImageFull = document.querySelector(".stories-full-view .story img");
 const storyAuthorFull = document.querySelector(
@@ -264,4 +260,71 @@ nextBtnFull.addEventListener("click", () => {
 
 previousBtnFull.addEventListener("click", () => {
   previous();
+});
+
+
+
+
+//Create story full view JS CODE
+const fileInput = document.getElementById("file-input");
+
+fileInput.addEventListener("change", function(event) {
+  const selectedFile = event.target.files[0];
+  if (selectedFile) {
+    const fileType = selectedFile.type;
+
+    if (fileType.includes("image")) {
+      // C'est une image
+      const imgUrl = URL.createObjectURL(selectedFile);
+      const bodyDiv = document.querySelector(".body");
+      bodyDiv.innerHTML = `<img src="${imgUrl}" alt="Image">`;
+      const createStoriesView = document.querySelector(".create-stories-full-view");
+      createStoriesView.classList.add('active');
+    } else if (fileType.includes("video")) {
+      // C'est une vidéo
+      const videoUrl = URL.createObjectURL(selectedFile);
+      const bodyDiv = document.querySelector(".body");
+      bodyDiv.innerHTML = `<video src="${videoUrl}" controls></video>`;
+      const createStoriesView = document.querySelector(".create-stories-full-view");
+      createStoriesView.classList.add('active');
+    }
+  }
+});
+
+//grabbing drag testaria in creating fullStories
+//I Love JavaScript ,haha
+
+const textEditor = document.querySelector(".text-editor");
+const writeText = document.querySelector('.write-text');
+const textInput = document.getElementById("text-input");
+
+let isDragging = false;
+let offsetX, offsetY;
+
+textEditor.addEventListener("mousedown", function(e) {
+  isDragging = true;
+  offsetX = e.clientX - textEditor.getBoundingClientRect().left;
+  offsetY = e.clientY - textEditor.getBoundingClientRect().top;
+  textEditor.classList.add("dragging");
+});
+
+document.addEventListener("mousemove", function(e) {
+  if (!isDragging) return;
+  const newX = e.clientX - offsetX;
+  const newY = e.clientY - offsetY;
+
+  textEditor.style.left = newX + "px";
+  textEditor.style.top = newY + "px";
+
+  console.log("Left:", newX, "Top:", newY);
+});
+
+document.addEventListener("mouseup", function() {
+  isDragging = false;
+  textEditor.classList.remove("dragging");
+});
+
+writeText.addEventListener('click', function() {
+  textEditor.classList.remove('hidden');
+  textInput.focus();
 });

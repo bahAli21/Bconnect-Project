@@ -1,0 +1,238 @@
+.create-stories-full-view {
+  position: fixed;
+  inset: 0;
+  z-index:70;
+  background: var(--color-dark);
+  display: none;
+  place-items: center;
+}
+
+.create-story .header {
+  display: flex;
+  position: absolute;
+  top: 0rem;
+  justify-content: space-between;
+  z-index: 1;
+  width: 95%;
+  height: 38px;
+  background: linear-gradient(transparent, #fff 130%);
+  border-radius: 22px;
+  margin-left: .4rem;
+  padding: 10px;
+}
+
+.header .previous-btn-create {
+  height: 80%;
+  position: absolute;
+  z-index: 2;
+  top: .4rem;
+  left: .2rem;
+  background: #fff;
+  color: #444;
+  border-radius: 50%;
+  display: flex;
+  cursor: pointer;
+}
+
+.header .write-text {
+  border-radius: 50%;
+  width: 36px;
+  height: 90%;
+  background: var(--color-dark);
+  position: absolute;
+  right: 6rem;
+  top: .2rem;
+  border: 1px solid var(--color-white);
+  cursor: pointer;
+  cursor: pointer;
+}
+
+.header .palette {
+  position: absolute;
+  top: .0rem;
+  right: .7rem;
+  height: 71%;
+  width: 40px;
+  border-radius: 50%;
+  cursor: pointer;
+}
+
+.header .write-text p {
+  position: absolute;
+  top: .2rem;
+  left: .4rem;
+  font-size: 1rem;
+  color: var(--color-white);
+}
+
+.create-story .body {
+  overflow: visible;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.body {
+  width: 100%;
+  height: 100%;
+}
+
+.body img {
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+  position: absolute;
+  z-index: 0;
+}
+
+.body video {
+  object-fit: contain;
+}
+
+.create-story .footer {
+  display: flex;
+  position: absolute;
+  bottom: 0rem;
+  justify-content: space-between;
+  align-items: center;
+  z-index: 1;
+  width: 90%;
+  background: linear-gradient(transparent, #fff 130%);
+  border-radius: 22px;
+  margin-left: 1.3rem;
+}
+
+.create-story .footer .left,
+ .create-story .footer .right{
+    padding: 5px;
+    width: 35%;
+    border-radius: 6rem;
+    border: none;
+    margin: 0rem;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background: var(--color-dark);
+    font-size: .8rem;
+    text-align: center;
+    cursor: pointer;
+    position: relative;
+}
+
+.footer .music {
+  position: absolute;
+  top: .3rem;
+  right: .1rem;
+  height: 71%;
+  width: 40px;
+  border-radius: 50%;
+  cursor: pointer;
+}
+
+.create-story .footer .left img,
+.create-story .footer .right .icone-start {
+  border-radius: 50%;
+  width: 30px;
+  height: 30px;
+  margin-left: 2px;
+  border: 1px solid var(--color-white);
+  color: var(--color-success);
+}
+
+.create-story .footer .left p.text,
+.create-story .footer .right p.text {
+  position: absolute;
+  left: 3rem;
+  color: var(--color-white);
+}
+
+.hidden {
+  display: none;
+}
+
+.create-story .text-editor {
+  position: absolute;
+   /* Position initiale */
+   top: 10%;
+   left: 37%;
+   background: transparent;
+   border: none;
+   cursor: pointer;
+
+   /* Empeche la barre vertical de s'afficher */
+   overflow-y: hidden;
+}
+
+.create-story .text-editor textarea {
+   background: transparent;
+   border: none;
+   padding: 20px;
+   color: var(--color-black);
+   font-size: 1.3rem;
+   font-weight: 600;
+   overflow-y: hidden;
+}
+
+.create-story .text-editor {
+  z-index: 200;
+  cursor: grabbing;
+}
+
+.text-editor.dragging {
+  cursor: grabbing;
+}
+
+.body img , .body video {
+  z-index: 0;
+}
+
+@media  screen and (max-width: 650px){
+  .create-story .footer {
+    width: 92%;
+    margin-left: 0.2rem;
+  }
+
+  .create-story .header {
+    position: absolute;
+    top: 3rem;
+    width: 92%;
+    padding: 30px;
+  }
+
+  .create-story .body img {
+    object-fit: content;
+    width: 90%;
+    margin-left: .8rem;
+  }
+
+  .header .write-text {
+    width: 44px;
+    height: 68%;
+    position: absolute;
+    right: 4rem;
+    top: .7rem;
+  }
+
+  .header .palette {
+    position: absolute;
+    top: .7rem;
+    right: .3rem;
+    height: 71%;
+    width: 40px;
+    border-radius: 50%;
+  }
+
+  .header .write-text p {
+    position: absolute;
+    top: .4rem;
+    left: .6rem;
+    font-size: 1rem;
+  }
+
+  .create-story .text-editor {
+    position: absolute;
+     /* Position initiale for mobile phone*/
+     top: 18%;
+     left: 33%;
+    cursor: pointer;
+  }
+}

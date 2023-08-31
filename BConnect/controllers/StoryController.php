@@ -14,13 +14,13 @@ class StoryController
 $story = new Story;
 $tab = [
   'content' => "Bonjour",
-  'file-choosed' => '../../assets/images/img/7.jpg',
+  'file-choosed' => '../../assets/images/img/heart.png',
 ];
 
 
 $story = new Story;
-// $story->userAddStory($tab, 22);
+ $story->userAddStory($tab, 23);
 // $story->setNbStory($story->getNbStory());
 // echo $story->getNbStory();
 
- var_dump($story->getAllStories());
+ // var_dump($story->getAllStories());

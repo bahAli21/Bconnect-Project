@@ -1,5 +1,6 @@
 /* En quête de connaissances et passionné d'informatique, je suis BAH Mamadou, étudiant en Licence 2 Mathématiques Informatique à Lyon 1. La programmation est ma toile, et chaque ligne de code est un coup de pinceau qui crée des solutions et donne vie à des idées. */
 /* full-view-story */
+@import "create_story.css";
 .stories-full-view .previous-btn,
 .stories-full-view .next-btn {
   width: 30px;
@@ -185,7 +186,7 @@
   place-items: center;
 }
 
-.stories-full-view.active {
+.stories-full-view.active, .create-stories-full-view.active {
   display: grid;
 }
 
@@ -193,7 +194,7 @@
   background: var(--color-danger);
 }
 
-.stories-full-view .close-btn {
+.stories-full-view .close-btn, .create-stories-full-view  .create-close-btn{
   position: absolute;
   top: 0.5rem;
   right: 0rem;
@@ -207,7 +208,7 @@
   cursor: pointer;
 }
 
-.stories-full-view .content {
+.stories-full-view .content, .create-stories-full-view  .content {
   height: 90vh;
   width: 100%;
   max-width: 550px;
@@ -215,12 +216,12 @@
   border-radius: 50px;
 }
 
-.stories-full-view .story {
+.stories-full-view .story , .create-stories-full-view .create-story {
   height: 100%;
   text-align: center;
 }
 
-.stories-full-view .story img.img-post {
+.stories-full-view .story img.img-post{
   height: 70%;
   aspect-ratio: 10/16;
   object-fit: contain;
