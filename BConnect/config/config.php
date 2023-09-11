@@ -3,7 +3,7 @@
 
 return [
     'host' => 'localhost',
-    'dbname' => 'bconnect_database',
-    'user' => 'root',
-    'password' => 'root',
+    'dbname' => 'bconnect',
+    'uid' => 'root',
+    'password' => 'root'
 ];

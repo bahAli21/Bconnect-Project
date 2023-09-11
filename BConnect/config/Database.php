@@ -1,30 +1,20 @@
 <?php
-// Database.php
-
-interface DatabaseInterface {
-    public function getConnexion(): mysqli;
-}
-
-class Database implements DatabaseInterface {
-    private $config;
+class Database {
+    protected $config;
 
     public function __construct() {
         $this->config = require 'config.php';
     }
 
-    public function getConnexion(): mysqli {
-        $conn = new mysqli(
-            $this->config['host'],
-            $this->config['user'],
-            $this->config['password'],
-            $this->config['dbname']
-        );
-
-        if ($conn->connect_error) {
-            die("Connection failed: " . $conn->connect_error);
+    public function getConnexion() {
+        try {
+            $pdo = new PDO("mysql:host={$this->config['host']};dbname={$this->config['dbname']}",
+            $this->config['uid'],
+            $this->config['password']);
+            $pdo->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
+            return $pdo;
+        } catch (PDOException $e) {
+            die("Erreur de connexion à la base de données : " . $e->getMessage());
         }
-
-        return $conn;
     }
 }
-?>

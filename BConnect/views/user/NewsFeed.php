@@ -1,16 +1,12 @@
 <?php
-require_once("../../config/Database.php");
-include_once("../../models/UserModel.php");
-require_once("../../models/StoryModel.php");
 session_start();
-if(!isset($_SESSION['id'])){
-    header("location: home.php");
-}
+require_once('../../config/Database.php');
+require_once('../../models/userModel/User.php');
+require_once('../../models/userModel/UserInfo.php');
+require_once('../../models/userModel/UserSetting.php');
+  $allData = (new UserSetting)->getUserInformations();
 
- $story = new Story;
- $user = new UserModel;
-?>
-
+ ?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -22,6 +18,8 @@ if(!isset($_SESSION['id'])){
     <link rel="stylesheet" href="../../assets/css/News_Feeds/style.css">
     <!-- ...............Font Awesome Link................. -->
     <link rel="stylesheet" href="../../assets/fontawesome-free-6.3.0-web/css/all.css">
+    <!-- Include stylesheet -->
+    <link href="https://cdn.quilljs.com/1.3.6/quill.snow.css" rel="stylesheet">
 </head>
 <body>
     <!-- ...................Start Navbar................... -->
@@ -92,6 +90,8 @@ if(!isset($_SESSION['id'])){
     <!-- ...................End PopUps Aria................... -->
 
     <!-- .................Custom JS Link.................. -->
+    <!-- Include the Quill library -->
+    <script src="https://cdn.quilljs.com/1.3.6/quill.js"></script>
     <script src="../../assets/js/user_page.js"></script>
     <script src="../../assets/js/story.js"></script>
 </body>

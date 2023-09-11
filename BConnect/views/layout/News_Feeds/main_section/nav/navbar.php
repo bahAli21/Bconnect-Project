@@ -13,7 +13,7 @@
         <label for="add-post" class="btn mini-button add-post-2" > <i class="fa fa-add" name="add-icon"></i> </label>
 
         <div class="profile-picture" id="my-profile-picture">
-            <img src="../../assets/images/uploadImg/<?= $user->getUser($_SESSION['id'])['ProfilePhotoURL'] ?>" alt="">
+            <img src="../../assets/images/uploadImg/<?= $allData['profilePicture'] ?>" alt="">
         </div>
     </div>
   </div>

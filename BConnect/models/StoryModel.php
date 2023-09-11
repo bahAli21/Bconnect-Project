@@ -3,7 +3,7 @@
 interface StoryInterface
 {
     public function getStory($userId): array;
-    public function userAddStory($post, $userSession): bool;
+    public function userAddStory($post, $userSession, $img): bool;
     public function getAllStories(): array;
     public function setNbStory($nbStory): bool;
     public function getUser($userId): array ;
@@ -79,18 +79,18 @@ class Story implements StoryInterface
     }
 
 
-    public function userAddStory($post, $userSession): bool {
+    public function userAddStory($post, $userSession, $img): bool {
         $userStoriesArray = $this->getStory($userSession);
         $userData = $this->getUser($userSession);
 
         $newStoryContent = array(
-            'textContent' => $post['content'],
+            'textContent' => $post['content-text'],
             'id' => $this->getNbStory(),
             'likes' => 0,
             'views' => 0,
             'author' => $userData['FullName'],
             'AuthorImgUrl' => $userData['ProfilePhotoURL'],
-            'postContent' => $post['file-choosed']
+            'postContent' => $img
         );
         $userStoriesArray[] = $newStoryContent;
         $userStoriesArraySerialized = serialize($userStoriesArray);

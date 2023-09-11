@@ -7,6 +7,7 @@ const storiesFullView = document.querySelector(".stories-full-view");
 const createStoriesFullView = document.querySelector(".create-stories-full-view");
 const closeBtn = document.querySelector(".close-btn");
 const storyImageFull = document.querySelector(".stories-full-view .story img");
+const storyVideoFull = document.querySelector(".stories-full-view .story video");
 const storyAuthorFull = document.querySelector(
   ".stories-full-view .story .author"
 );
@@ -18,6 +19,23 @@ const previousBtnFull = document.querySelector(
   ".stories-full-view .previous-btn"
 );
 
+//function qui retourn le type de fichier
+function determineFileType(fileName) {
+  const imageExtensions = ['.jpg', '.png', '.gif']; // Extensions d'images courantes
+  const videoExtensions = ['.mp4', '.avi', '.mov']; // Extensions de vidéos courantes
+
+  //j'ai grave reflechis , je mets tout la chaine en minuscule j'utilise le . comme separrateur un peut comme les cut sur unix
+  const fileExtension = fileName.toLowerCase().substring(fileName.lastIndexOf('.'));
+
+  if (imageExtensions.includes(fileExtension)) {
+    return 'image';
+  } else if (videoExtensions.includes(fileExtension)) {
+    return 'video';
+  } else {
+    return 'autre'; // Si l'extension n'est ni une image ni une vidéo
+  }
+}
+
 const updateFullView = () => {
 
   if (
@@ -26,10 +44,19 @@ const updateFullView = () => {
     currentActiveSubStory >= 0 &&
     currentActiveSubStory < allStories[currentActive].length
   ) {
-    storyImageFull.src = allStories[currentActive][currentActiveSubStory].postContent;
+
+    $txtContent = document.querySelector('.story .content-txt');
+    if(determineFileType(allStories[currentActive][currentActiveSubStory].postContent) === "image") {
+        storyImageFull.src = "../../assets/images/uploadImg/" + allStories[currentActive][currentActiveSubStory].postContent;
+        storyVideoFull.src = "";
+    } else if (determineFileType(allStories[currentActive][currentActiveSubStory].postContent) === "video") {
+      storyVideoFull.src = "../../assets/images/uploadImg/" + allStories[currentActive][currentActiveSubStory].postContent;
+      storyImageFull.src = "";
+    }
     storyAuthorFull.innerHTML = allStories[currentActive][currentActiveSubStory].author;
     const profileFullImage = document.querySelector(".profileFull");
     profileFullImage.src = "../../assets/images/uploadImg/" + allStories[currentActive][currentActiveSubStory].AuthorImgUrl;
+    $txtContent.innerHTML = allStories[currentActive][currentActiveSubStory].textContent;
     displayFooter(allStories[currentActive][currentActiveSubStory].id);
     createIndicators(currentActive, currentActiveSubStory);
   }
@@ -155,7 +182,7 @@ const createStories = () => {
     document.querySelector(".profileFull").src = "../../assets/images/uploadImg/${subStory[0].AuthorImgUrl}"
     story.classList.add("story");
     story.innerHTML = `
-        <img src="${subStory[0].postContent}" alt="">
+        <img src="../../assets/images/uploadImg/${subStory[0].postContent}" alt="">
         <div class="bloc-profile-author">
             <div class="profile-picture">
                 <img src="../../assets/images/uploadImg/${subStory[0].AuthorImgUrl}" alt="">
@@ -284,47 +311,107 @@ fileInput.addEventListener("change", function(event) {
       // C'est une vidéo
       const videoUrl = URL.createObjectURL(selectedFile);
       const bodyDiv = document.querySelector(".body");
-      bodyDiv.innerHTML = `<video src="${videoUrl}" controls></video>`;
+      bodyDiv.innerHTML = `<video src="${videoUrl}"  autoplay loop width="100%" height="100%" name="video-post-story"></video>`;
       const createStoriesView = document.querySelector(".create-stories-full-view");
       createStoriesView.classList.add('active');
     }
   }
 });
 
+document.getElementById('write-txt').addEventListener("click", () => {
+  document.getElementById('editor-container').classList.toggle('hidden');
+});
+
+//Les chevron up and down
+const selectFont = document.querySelector('.select-font');
+const chevronDown = selectFont.querySelector('.chevron-down');
+const chevronUp = selectFont.querySelector('.chevron-up');
+const fontFamilyContainer = document.querySelector('.create-story .font-family-container');
+
+selectFont.addEventListener('click', () => {
+  chevronDown.classList.toggle('hidden');
+  chevronUp.classList.toggle('hidden');
+  fontFamilyContainer.classList.toggle('visible');
+});
+
+document.querySelector('.header .previous-btn-create').addEventListener("click", () => {
+  createStoriesView.classList.toggle('active');
+});
+
+const fontButtons = fontFamilyContainer.querySelectorAll('span');
+
+fontButtons.forEach(button => {
+  button.addEventListener('click', () => {
+    //je Supprime la classe active de tous les boutons
+    fontButtons.forEach(btn => btn.classList.remove('active'));
+    // j'ajoute la classe active au bouton cliqué
+    button.classList.add('active');
+  });
+});
+
+
+//Je declence la soumission du formulaire avec js
+document.addEventListener("DOMContentLoaded", function () {
+        const leftBlock = document.querySelector(".create-story .footer .left");
+        leftBlock.addEventListener("click", function () {
+            const form = document.getElementById("story-form");
+
+            // je crée un champ de formulaire caché avec le nom "post-story"
+            const hiddenInput = document.createElement("input");
+            hiddenInput.type = "hidden";
+            hiddenInput.name = "post-story";
+            hiddenInput.value = "";
+            form.appendChild(hiddenInput);
+
+            form.submit();
+        });
+    });
+
 //grabbing drag testaria in creating fullStories
 //I Love JavaScript ,haha
 
-const textEditor = document.querySelector(".text-editor");
-const writeText = document.querySelector('.write-text');
-const textInput = document.getElementById("text-input");
-
-let isDragging = false;
-let offsetX, offsetY;
-
-textEditor.addEventListener("mousedown", function(e) {
-  isDragging = true;
-  offsetX = e.clientX - textEditor.getBoundingClientRect().left;
-  offsetY = e.clientY - textEditor.getBoundingClientRect().top;
-  textEditor.classList.add("dragging");
-});
-
-document.addEventListener("mousemove", function(e) {
-  if (!isDragging) return;
-  const newX = e.clientX - offsetX;
-  const newY = e.clientY - offsetY;
-
-  textEditor.style.left = newX + "px";
-  textEditor.style.top = newY + "px";
-
-  console.log("Left:", newX, "Top:", newY);
-});
-
-document.addEventListener("mouseup", function() {
-  isDragging = false;
-  textEditor.classList.remove("dragging");
-});
-
-writeText.addEventListener('click', function() {
-  textEditor.classList.remove('hidden');
-  textInput.focus();
-});
+// const writeText = document.querySelector('.write-text');
+// const textInput = document.getElementById("editor-container");
+//
+// let isDragging = false;
+// let offsetX, offsetY;
+//
+// textInput.addEventListener("mousedown", function(e) {
+//   isDragging = true;
+//   offsetX = e.clientX - textInput.getBoundingClientRect().left;
+//   offsetY = e.clientY - textInput.getBoundingClientRect().top;
+//   textInput.classList.add("dragging");
+// });
+//
+// document.addEventListener("mousemove", function(e) {
+//   if (!isDragging) return;
+//   const newX = e.clientX - offsetX;
+//   const newY = e.clientY - offsetY;
+//
+//   textInput.style.left = newX + "px";
+//   textInput.style.top = newY + "px";
+//
+//   console.log("Left:", newX, "Top:", newY);
+// });
+//
+// document.addEventListener("mouseup", function() {
+//   isDragging = false;
+//   textInput.classList.remove("dragging");
+// });
+//
+// writeText.addEventListener('click', function() {
+//   textInput.classList.remove('hidden');
+//   textInput.focus();
+// });
+//
+//
+// //Bibliotheque quill.js
+//
+// var quill = new Quill('#editor-container', {
+//   theme: 'snow',//('snow' pour une interface claire)
+//   placeholder: 'Écrivez votre histoire ici...',
+// });
+//
+//
+// var content = quill.getContents();
+// console.log(content);
