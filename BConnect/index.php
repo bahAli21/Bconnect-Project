@@ -1,13 +1,16 @@
 <?php
 // Include necessary files and classes
-require_once('config/Database.php');
-require_once('models/userModel/User.php');
-require_once('models/userModel/UserInfo.php');
-require_once('models/userModel/UserSetting.php');
-require_once('controllers/UserController/Authentificator.php');
+require_once 'config/Database.php';
+require_once 'models/userModel/User.php';
+require_once 'models/userModel/UserInfo.php';
+require_once 'models/userModel/UserSetting.php';
+require_once 'controllers/UserController/Authentificator.php';
 
 // Generate a unique identifier for the user
-$UID = bin2hex(random_bytes(10));
+try {
+    $UID = bin2hex(random_bytes(10));
+} catch (Exception $e) {
+}
 
 // Create an Authentificator instance
 $user = new Authentificator($UID, $_POST, $_FILES);

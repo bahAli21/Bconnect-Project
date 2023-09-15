@@ -14,8 +14,7 @@
    public function setProfilePicture($profilePicture) {
      $this->updateField('usersinfo', 'profilePicture', $profilePicture);
    }
-
-   public function setPhone($phone){
+     public function setPhone($phone){
      $this->updateField('usersinfo', 'phoneNumber', $phone);
    }
 

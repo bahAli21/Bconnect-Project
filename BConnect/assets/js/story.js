@@ -24,7 +24,7 @@ function determineFileType(fileName) {
   const imageExtensions = ['.jpg', '.png', '.gif']; // Extensions d'images courantes
   const videoExtensions = ['.mp4', '.avi', '.mov']; // Extensions de vidéos courantes
 
-  //j'ai grave reflechis , je mets tout la chaine en minuscule j'utilise le . comme separrateur un peut comme les cut sur unix
+  //j'ai grave reflechis , je mets toute la chaine en minuscule j'utilise le . comme separrateur un peut comme les cut sur unix
   const fileExtension = fileName.toLowerCase().substring(fileName.lastIndexOf('.'));
 
   if (imageExtensions.includes(fileExtension)) {

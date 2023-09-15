@@ -19,7 +19,6 @@ require_once('../../models/userModel/UserSetting.php');
     <!-- ...............Font Awesome Link................. -->
     <link rel="stylesheet" href="../../assets/fontawesome-free-6.3.0-web/css/all.css">
     <!-- Include stylesheet -->
-    <link href="https://cdn.quilljs.com/1.3.6/quill.snow.css" rel="stylesheet">
 </head>
 <body>
     <!-- ...................Start Navbar................... -->
@@ -91,7 +90,6 @@ require_once('../../models/userModel/UserSetting.php');
 
     <!-- .................Custom JS Link.................. -->
     <!-- Include the Quill library -->
-    <script src="https://cdn.quilljs.com/1.3.6/quill.js"></script>
     <script src="../../assets/js/user_page.js"></script>
     <script src="../../assets/js/story.js"></script>
 </body>

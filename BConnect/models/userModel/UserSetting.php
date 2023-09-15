@@ -7,7 +7,7 @@ public string $bio;
 public string $status;
 public string $privacy;
 public string $notification;
-private $conn;
+private ?PDO $conn;
 public function __construct() {
   $this->conn = (new Database)->getConnexion();
 }
@@ -29,13 +29,10 @@ public function setNotification(string $notification): void {
 }
 
 public function insertUserSettings($UniqID): bool {
-  $sql = "INSERT INTO `usersettings` (userId) VALUES (?)";
+  $sql = 'INSERT INTO `usersettings` (userId) VALUES (?)';
   $statement = $this->conn->prepare($sql);
   $statement->execute([$UniqID]);
-  if(!$statement) {
-    return false;
-  }
-  return true;
+    return (bool) $statement;
 }
 
     /**
@@ -44,8 +41,10 @@ public function insertUserSettings($UniqID): bool {
  * @return array|false Returns an array containing user information if successful, false otherwise.
  * @throws Exception If an error occurs during the retrieval process.
  */
-public function getUserInformations() {
-    $sql = "SELECT
+public function getUserInformations(){
+    /** @var TYPE_NAME $sql */
+    $sql =
+        'SELECT
                 users.UID, users.lastName, users.firstName, users.email, users.password,
                 usersinfo.profilePicture, usersinfo.location, usersinfo.phoneNumber,
                 usersettings.bio, usersettings.status,
@@ -56,7 +55,7 @@ public function getUserInformations() {
                 usersinfo ON users.UID = usersinfo.userId
             INNER JOIN
                 usersettings ON users.UID = usersettings.userId
-            WHERE users.id = :userID";
+            WHERE users.id = :userID';
 
     try {
         $statement = $this->conn->prepare($sql);
