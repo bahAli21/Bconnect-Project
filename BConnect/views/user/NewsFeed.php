@@ -4,8 +4,12 @@ require_once('../../config/Database.php');
 require_once('../../models/userModel/User.php');
 require_once('../../models/userModel/UserInfo.php');
 require_once('../../models/userModel/UserSetting.php');
+require_once 'controllers/UserController/storyController.php';
   $allData = (new UserSetting)->getUserInformations();
-
+    if(isset($_POST['post-story'])) {
+        $storyC = new storyController($_POST, $_FILES);
+        $storyC->createStory();
+    }
  ?>
 <!DOCTYPE html>
 <html lang="en">

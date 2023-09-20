@@ -58,6 +58,16 @@ public function checkEmail($email): bool{
     return (bool) $userData;
 }
 
+public function getUIDConnected(): string {
+    $sql = "SELECT users.UID AS UniqID
+                FROM users
+                WHERE id = :userId";
+    $statement = $this->conn->prepare($sql);
+    $statement->bindParam(':userId', $_SESSION['id']);
+    $statement->execute();
+    return $statement['UniqID'];
+}
+
 /**
  * Verify user login credentials.
  *

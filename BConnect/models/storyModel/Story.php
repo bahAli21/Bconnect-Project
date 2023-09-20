@@ -1,7 +1,5 @@
 <?php
 
-namespace storyModel;
-
 class Story
 {
     private $conn;
@@ -21,17 +19,35 @@ class Story
         return (bool) $statement;
     }
 
-    public function  getStoryByUser(): array {
-        $sql = "SELECT users.firstName, users.lastName, stories.*
-                    FROM `users` 
-                    INNER JOIN stories 
-                    ON users.UID = stories.userId";
-        $statement = $this-conn->prepare($sql);
+    public function getAllStories(): array {
+        $sql = "SELECT users.UID, users.firstName, users.lastName, stories.id, stories.post, stories.text, stories.views, stories.likes, stories.date
+                FROM `users`
+                LEFT JOIN stories ON users.UID = stories.userId";
+
+        $statement = $this->conn->prepare($sql);
         $statement->execute();
-        
+
+        $allStories = array();
+
+        while ($row = $statement->fetch(PDO::FETCH_ASSOC)) {
+            $userId = $row['UID'];
+            if (!isset($allStories[$userId])) {
+                $allStories[$userId] = array();
+            }
+
+            $story = array(
+                'id' => $row['id'],
+                'post' => $row['post'],
+                'text' => $row['text'],
+                'views' => $row['views'],
+                'likes' => $row['likes'],
+                'date' => $row['date']
+            );
+
+            $allStories[$userId][] = $story;
+        }
+
+        return $allStories;
     }
 
-    public function  getAllStories(): array {
-
-    }
 }

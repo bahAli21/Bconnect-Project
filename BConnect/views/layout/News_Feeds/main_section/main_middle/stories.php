@@ -1,5 +1,5 @@
 <!--...........Start Stories............. -->
-<?php require_once('../../controllers/StoryController.php');
+<?php require_once('../../models/storyModel/Story.php');
  ?>
  <form id="story-form" action="" method="post" enctype="multipart/form-data">
   <div class="stories-container">
@@ -22,7 +22,9 @@
      </div>
 
      <div class="storie">
-       <?php //$allStories = $story->getAllStories(); ?>
+       <?php
+       $story = new Story();
+       $allStories = $story->getAllStories(); ?>
        <div class="stories" data-stories="<?= htmlspecialchars(json_encode($allStories)) ?>"></div>
 
        <div class="story">
